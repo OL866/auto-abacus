@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://cmrtxygfke1ti"]
+
+[ext_resource type="Shader" uid="uid://r4r1he2nel45" path="res://grid.gdshader" id="1_omtrn"]
+[ext_resource type="Script" uid="uid://b5scjssul4bd6" path="res://bead.gd" id="2_i6t4g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p1f1o"]
+shader = ExtResource("1_omtrn")
+shader_parameter/size = Vector2(1024, 600)
+shader_parameter/line_width = 0.1
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/grid_size = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omtrn"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6t4g"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8jf4"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1f1o"]
+
+[node name="Tutorial" type="Control" unique_id=1397375333]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grid2" type="ColorRect" parent="." unique_id=1698733554]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Grid" type="ColorRect" parent="." unique_id=2101925208]
+material = SubResource("ShaderMaterial_p1f1o")
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.083911724, 0.08391165, 0.083911695, 1)
+metadata/_edit_lock_ = true
+
+[node name="back" type="Control" parent="." unique_id=394139981]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = 536.0
+offset_right = 200.0
+offset_bottom = 576.0
+
+[node name="Control" type="Control" parent="back" unique_id=98883328]
+anchors_preset = 0
+offset_top = -88.0
+offset_bottom = -88.0
+
+[node name="Pole" type="ColorRect" parent="back/Control" unique_id=1785222917]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 680.0
+
+[node name="Pole2" type="ColorRect" parent="back/Control" unique_id=905525104]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 28.0
+offset_bottom = 680.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="back" unique_id=1651258269]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 296.0
+offset_right = 112.0
+offset_bottom = 360.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_omtrn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i6t4g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p8jf4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_omtrn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p1f1o")
+text = "Main Menu"
+script = ExtResource("2_i6t4g")
+targetY = 64
+down = false
+scenePath = "res://Scenes/titleScreen.tscn"
+
+[node name="Base" type="Control" parent="back" unique_id=1689217638]
+anchors_preset = 0
+offset_left = -88.0
+offset_top = -112.0
+offset_right = -48.0
+offset_bottom = -72.0
+
+[node name="Base" type="ColorRect" parent="back/Base" unique_id=707528070]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 24.0
+
+[node name="Base2" type="ColorRect" parent="back/Base" unique_id=993450827]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 204.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="back/Button" to="back/Button" method="_on_pressed"]

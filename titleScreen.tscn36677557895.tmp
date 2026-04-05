@@ -1,0 +1,238 @@
+[gd_scene format=3 uid="uid://d1rlvmd1v84gg"]
+
+[ext_resource type="Shader" uid="uid://r4r1he2nel45" path="res://grid.gdshader" id="1_sf2e2"]
+[ext_resource type="Script" uid="uid://b5scjssul4bd6" path="res://bead.gd" id="2_tic01"]
+[ext_resource type="PackedScene" uid="uid://catdntktl31bc" path="res://UI.tscn" id="3_3b4xv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tic01"]
+shader = ExtResource("1_sf2e2")
+shader_parameter/size = Vector2(1024, 600)
+shader_parameter/line_width = 0.1
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/grid_size = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqvil"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tic01"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3b4xv"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tic01"]
+
+[node name="TitleScreen" type="Node2D" unique_id=979475625]
+
+[node name="Grid2" type="ColorRect" parent="." unique_id=1040838691]
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Grid" type="ColorRect" parent="." unique_id=1986592300]
+material = SubResource("ShaderMaterial_tic01")
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.083911724, 0.08391165, 0.083911695, 1)
+metadata/_edit_lock_ = true
+
+[node name="Tutorial" type="Control" parent="." unique_id=1681050550]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 158.0
+offset_top = -81.0
+offset_right = 198.0
+offset_bottom = -41.0
+
+[node name="Control" type="Control" parent="Tutorial" unique_id=2023427927]
+anchors_preset = 0
+
+[node name="Pole" type="ColorRect" parent="Tutorial/Control" unique_id=934133285]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 680.0
+
+[node name="Pole2" type="ColorRect" parent="Tutorial/Control" unique_id=1046441798]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 28.0
+offset_bottom = 680.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="Tutorial" unique_id=508424730]
+layout_mode = 0
+offset_left = -80.0
+offset_right = 112.0
+offset_bottom = 64.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqvil")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tic01")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3b4xv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_yqvil")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tic01")
+text = "Tutorial"
+script = ExtResource("2_tic01")
+
+[node name="Base" type="Control" parent="Tutorial" unique_id=378506264]
+anchors_preset = 0
+offset_left = -88.0
+offset_top = 656.0
+offset_right = -48.0
+offset_bottom = 696.0
+
+[node name="Base" type="ColorRect" parent="Tutorial/Base" unique_id=800601797]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 24.0
+
+[node name="Base2" type="ColorRect" parent="Tutorial/Base" unique_id=511700152]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 204.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="Abacus" type="Control" parent="." unique_id=583388716]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 496.0
+offset_top = -80.0
+offset_right = 536.0
+offset_bottom = -40.0
+
+[node name="Control" type="Control" parent="Abacus" unique_id=1559284996]
+anchors_preset = 0
+
+[node name="Pole" type="ColorRect" parent="Abacus/Control" unique_id=43494766]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 680.0
+
+[node name="Pole2" type="ColorRect" parent="Abacus/Control" unique_id=1283856814]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 28.0
+offset_bottom = 680.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="Abacus" unique_id=675706943]
+layout_mode = 0
+offset_left = -80.0
+offset_right = 112.0
+offset_bottom = 64.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqvil")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tic01")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3b4xv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_yqvil")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tic01")
+text = "Abacus"
+script = ExtResource("2_tic01")
+delay = 0.1
+tagetScene = ExtResource("3_3b4xv")
+
+[node name="Base" type="Control" parent="Abacus" unique_id=1670246605]
+anchors_preset = 0
+offset_left = -88.0
+offset_top = 656.0
+offset_right = -48.0
+offset_bottom = 696.0
+
+[node name="Base" type="ColorRect" parent="Abacus/Base" unique_id=1121962886]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 24.0
+
+[node name="Base2" type="ColorRect" parent="Abacus/Base" unique_id=1490607219]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 204.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="Credits" type="Control" parent="." unique_id=1701948398]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 824.0
+offset_top = -80.0
+offset_right = 864.0
+offset_bottom = -40.0
+
+[node name="Control" type="Control" parent="Credits" unique_id=1807879641]
+anchors_preset = 0
+
+[node name="Pole" type="ColorRect" parent="Credits/Control" unique_id=317285589]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 680.0
+
+[node name="Pole2" type="ColorRect" parent="Credits/Control" unique_id=1305684590]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 28.0
+offset_bottom = 680.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="Credits" unique_id=244280095]
+layout_mode = 0
+offset_left = -80.0
+offset_right = 112.0
+offset_bottom = 64.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqvil")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tic01")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3b4xv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_yqvil")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tic01")
+text = "Credits"
+script = ExtResource("2_tic01")
+delay = 0.2
+
+[node name="Base" type="Control" parent="Credits" unique_id=346111513]
+anchors_preset = 0
+offset_left = -88.0
+offset_top = 656.0
+offset_right = -48.0
+offset_bottom = 696.0
+
+[node name="Base" type="ColorRect" parent="Credits/Base" unique_id=1158190]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 24.0
+
+[node name="Base2" type="ColorRect" parent="Credits/Base" unique_id=1777259746]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 204.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Tutorial/Button" to="Tutorial/Button" method="_on_pressed"]
+[connection signal="pressed" from="Abacus/Button" to="Abacus/Button" method="_on_pressed"]
+[connection signal="pressed" from="Credits/Button" to="Credits/Button" method="_on_pressed"]

@@ -11,16 +11,20 @@ config_version=5
 [application]
 
 config/name="auto-abacus"
-run/main_scene="uid://catdntktl31bc"
+run/main_scene="uid://d1rlvmd1v84gg"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Fade="*uid://ckv6rq8vxx56n"
 
 [display]
 
 window/size/viewport_width=1024
 window/size/viewport_height=600
 window/size/mode=4
-window/size/mode.editor=0
+window/size/mode.debug=0
 
 [physics]
 
