@@ -16,6 +16,7 @@ border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -39,6 +40,19 @@ border_width_left = 8
 border_width_top = 8
 border_width_right = 8
 border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hmnx"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -46,36 +60,43 @@ corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tic01"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6dbl"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
 [node name="titleScreen" type="Control" unique_id=948254651]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 824.0
-offset_top = -80.0
-offset_right = 864.0
-offset_bottom = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Grid2" type="ColorRect" parent="." unique_id=1040838691]
 layout_mode = 0
-offset_left = -824.0
-offset_top = 81.0
-offset_right = 200.0
-offset_bottom = 681.0
+offset_right = 1024.0
+offset_bottom = 600.0
 color = Color(0, 0, 0, 1)
 
 [node name="Grid" type="ColorRect" parent="." unique_id=1986592300]
 material = SubResource("ShaderMaterial_tic01")
 layout_mode = 0
-offset_left = -824.0
-offset_top = 81.0
-offset_right = 200.0
-offset_bottom = 681.0
+offset_right = 1024.0
+offset_bottom = 600.0
 color = Color(0.083911724, 0.08391165, 0.083911695, 1)
 
 [node name="Tutorial" type="Control" parent="." unique_id=1681050550]
 anchors_preset = 0
-offset_left = -666.0
-offset_right = -626.0
-offset_bottom = 40.0
+offset_left = 158.0
+offset_top = -80.0
+offset_right = 198.0
+offset_bottom = -40.0
 
 [node name="Control" type="Control" parent="Tutorial" unique_id=2023427927]
 anchors_preset = 0
@@ -92,20 +113,23 @@ offset_right = 28.0
 offset_bottom = 680.0
 color = Color(0, 0, 0, 1)
 
-[node name="Button" type="Button" parent="Tutorial" unique_id=508424730]
+[node name="Button" type="Button" parent="Tutorial" unique_id=508424730 node_paths=PackedStringArray("disableBtns")]
 layout_mode = 0
 offset_left = -78.0
 offset_top = -48.0
 offset_right = 114.0
 offset_bottom = 16.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_yqvil")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tic01")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3b4xv")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_yqvil")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2hmnx")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tic01")
 text = "Tutorial"
 script = ExtResource("2_tic01")
 scenePath = "res://Scenes/tutorial.tscn"
+disableBtns = [NodePath("."), NodePath("../../Abacus/Button"), NodePath("../../Credits/Button")]
 
 [node name="Base" type="Control" parent="Tutorial" unique_id=378506264]
 anchors_preset = 0
@@ -129,10 +153,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="Abacus" type="Control" parent="." unique_id=583388716]
 anchors_preset = 0
-offset_left = -328.0
-offset_top = 1.0
-offset_right = -288.0
-offset_bottom = 41.0
+offset_left = 496.0
+offset_top = -80.0
+offset_right = 536.0
+offset_bottom = -40.0
 
 [node name="Control" type="Control" parent="Abacus" unique_id=1559284996]
 anchors_preset = 0
@@ -149,21 +173,25 @@ offset_right = 28.0
 offset_bottom = 680.0
 color = Color(0, 0, 0, 1)
 
-[node name="Button" type="Button" parent="Abacus" unique_id=675706943]
+[node name="Button" type="Button" parent="Abacus" unique_id=675706943 node_paths=PackedStringArray("disableBtns")]
 layout_mode = 0
 offset_left = -80.0
 offset_top = -49.0
 offset_right = 112.0
 offset_bottom = 15.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
 theme_override_styles/normal = SubResource("StyleBoxFlat_yqvil")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tic01")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3b4xv")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_yqvil")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_w6dbl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tic01")
 text = "Abacus"
 script = ExtResource("2_tic01")
-delay = 0.1
-scenePath = "res://Scenes/UI.tscn"
+delay = 0.25
+scenePath = "res://Scenes/Abacus.tscn"
+disableBtns = [NodePath("../../Tutorial/Button"), NodePath("."), NodePath("../../Credits/Button")]
 
 [node name="Base" type="Control" parent="Abacus" unique_id=1670246605]
 anchors_preset = 0
@@ -187,9 +215,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="Credits" type="Control" parent="." unique_id=1701948398]
 anchors_preset = 0
-offset_top = 1.0
-offset_right = 40.0
-offset_bottom = 41.0
+offset_left = 824.0
+offset_top = -79.0
+offset_right = 864.0
+offset_bottom = -39.0
 
 [node name="Control" type="Control" parent="Credits" unique_id=1807879641]
 anchors_preset = 0
@@ -206,21 +235,24 @@ offset_right = 28.0
 offset_bottom = 680.0
 color = Color(0, 0, 0, 1)
 
-[node name="Button" type="Button" parent="Credits" unique_id=244280095]
+[node name="Button" type="Button" parent="Credits" unique_id=244280095 node_paths=PackedStringArray("disableBtns")]
 layout_mode = 0
 offset_left = -80.0
 offset_top = -49.0
 offset_right = 112.0
 offset_bottom = 15.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
 theme_override_styles/normal = SubResource("StyleBoxFlat_yqvil")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tic01")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3b4xv")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_yqvil")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_w6dbl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tic01")
 text = "Credits"
 script = ExtResource("2_tic01")
-delay = 0.2
-scenePath = "res://Scenes/tutorial.tscn"
+scenePath = "res://Scenes/credits.tscn"
+disableBtns = [NodePath("../../Tutorial/Button"), NodePath("../../Abacus/Button"), NodePath(".")]
 
 [node name="Base" type="Control" parent="Credits" unique_id=346111513]
 anchors_preset = 0
