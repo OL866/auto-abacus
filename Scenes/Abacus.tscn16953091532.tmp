@@ -136,7 +136,7 @@ material = SubResource("ShaderMaterial_48q88")
 layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 600.0
-color = Color(0.21230483, 0.21230483, 0.21230483, 1)
+color = Color(0.083911724, 0.08391165, 0.083911695, 1)
 metadata/_edit_lock_ = true
 
 [node name="Typing" type="Control" parent="." unique_id=1463883120 node_paths=PackedStringArray("controller")]

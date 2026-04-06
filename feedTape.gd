@@ -5,6 +5,7 @@ var labels = []
 @onready var tape = find_child("tape")
 @onready var graveyard = find_child("graveyard")
 var index = 0
+signal killDone
 func kill():
 	if index < len(labels)-1:
 		var tween = create_tween()
@@ -15,22 +16,23 @@ func kill():
 		await tween.finished
 	index += 1
 	var moveTween = create_tween()
-	moveTween.tween_property(self, "position",Vector2(0,-162), 1)\
+	moveTween.tween_property(self, "position",Vector2(0,-162), 0.5)\
 		.set_trans(Tween.TRANS_QUAD)
 	var fadeTween = create_tween()
 	fadeTween.tween_property(self,"modulate:a",0.0,0.3)
-	await fadeTween.finished
+	await moveTween.finished
 	for i in get_children():
 		for j in i.get_children():
 			j.queue_free()
 			j.reparent(graveyard)
-func setup(ins):
 	index = 0
 	position = initPos
 	labels.clear()
 	headings.position = Vector2(0,0)
 	tape.position = Vector2(0,0)
 	modulate.a = 1.0
+	emit_signal("killDone")
+func setup(ins):
 	for i in ins:
 		var l = RichTextLabel.new()
 		l.set_size(Vector2(256,32))
@@ -51,6 +53,7 @@ func setup(ins):
 		labels.append(l)
 
 func move(stepBtn):
+	stepBtn.set_disabled(true)
 	var tween = create_tween()
 	tween.tween_property(tape, "position", tape.position-Vector2(0,labels[index+1].size.y+2) , 0.2)\
 		.set_trans(Tween.TRANS_QUAD)
@@ -59,8 +62,6 @@ func move(stepBtn):
 	await tween.finished
 	labels[index+1].queue_free()
 	labels[index+1].reparent(graveyard)
-	stepBtn.set_disabled(true)
-
 	index += 1
 	if index == len(labels): return
 	if  labels[index+1].get_theme_color("default_color") == Color("ffffff"):

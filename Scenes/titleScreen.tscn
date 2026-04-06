@@ -89,7 +89,7 @@ material = SubResource("ShaderMaterial_tic01")
 layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 600.0
-color = Color(0.083911724, 0.08391165, 0.083911695, 1)
+color = Color(0.21176471, 0.21176471, 0.21176471, 1)
 
 [node name="Tutorial" type="Control" parent="." unique_id=1681050550]
 anchors_preset = 0

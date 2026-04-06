@@ -6,72 +6,52 @@ var displayInstructions = []
 var wordIns = []
 var insIdx = 0
 var stepWord = false
+
+signal calculationDone
+signal allDone
+
 @onready var displayManager = get_parent().find_child("abacusDisplay")
-
 @export var feedTape:Control
-
 @export var equationDisplay:RichTextLabel
-
-@export var addBtn:Button
-@export var subBtn:Button
-@export var multBtn:Button
-@export var setBtn:Button
 @export var stepBtn:Button
-@onready var operatorBtns = [addBtn,subBtn,multBtn,setBtn]
-
 @export var networker:Node
-@export var entry:LineEdit
 
+var abacusNegative = false
+var totalBorrowed = 0
 func _ready() -> void:
 	set_val(0)
-	
-	addBtn.pressed.connect(operation.bind(add))
-	subBtn.pressed.connect(operation.bind(add,-1))
-	multBtn.pressed.connect(operation.bind(multiply))
-	setBtn.pressed.connect(set_val)
+
 	stepBtn.pressed.connect(step)
 	
 	#steps.set_text("")
 	#subSteps.set_text("")
 	#equationDisplay.set_text("")
 
-func operation(o, neg=1):
+func operation(o, n,final=false, neg=1):
 	wordIns.clear()
-	var ins = o.call(int(entry.get_text())*neg)
-	if not ins:
-		equationDisplay.set_text("Not enough room in the abacus!")
-		return
-	entry.clear()
-	for i in operatorBtns:
-		i.set_disabled(true)
+	var ins = o.call(int(n*neg),final)
 	stepBtn.set_disabled(false)
 	displayInstructions = ins
 	feedTape.setup(wordIns)
-
 func step():
-	print("step ",insIdx)
-	if stepWord:
-		feedTape.move(stepBtn)
-	else:
-		displayManager.display(displayInstructions[insIdx])
-		insIdx+=1
-	stepWord = !stepWord
+	displayManager.display(displayInstructions[insIdx],0.2)
+	insIdx+=1
 	if insIdx >= len(displayInstructions):
 		stepWord = false
 		feedTape.kill()
 		displayInstructions.clear()
 		insIdx = 0
-		equationDisplay.clear()
-		for i in operatorBtns:
-			i.set_disabled(false)
+		equationDisplay.set_text("")
 		stepBtn.set_disabled(true)
+		await feedTape.killDone
+		emit_signal("calculationDone")
 		return
+	feedTape.move(stepBtn)
 	#networker.send_data(displayInstructions[insIdx])
 
 
 #basic setter
-func set_val(v=int(entry.get_text())):
-	entry.clear()
+func set_val(v):
 	abacus = [0,0,0,0,0,0,0,0]
 	var digits = str(v).split("")
 	if len(digits) > len(abacus):
@@ -79,7 +59,7 @@ func set_val(v=int(entry.get_text())):
 		return 
 	for i in range(len(digits)):
 		abacus[unitRod-i] = int(digits[-1-i])
-	displayManager.display(abacus)
+	displayManager.display(abacus,0.2)
 
 #adding digits, called recursively for carrying
 func add_digit(aba,n,col) -> Array:
@@ -102,43 +82,56 @@ func add_digit(aba,n,col) -> Array:
 	return ins
 
 #splits n into digits and calls add_digit with subtraction logic
-func add(n,update=true,target = abacus):
+func add(n,final_update=false,update=true,target=abacus):
 	var instructions = []
-	var negative = 1
+	var nNegative = 1
 	var negativeResult = false
-	var val = int("".join(abacus))
+	var val = int("".join(target))
+
 	var action = "Adding " if n>0 else "Subtracing "
 	var symbol = " + " if n>0 else " - "
 	var verb = " to " if n>0 else " from "
-	if len(str(val + n)) > 8:
-		return []
+
 	if update:
-		equationDisplay.set_text(str(val) + symbol + str(n) + " = " + str(val+n*negative))
+		if abacusNegative: val = (totalBorrowed - val)*-1
+		abacusNegative = false
+		equationDisplay.set_text(str(val) + symbol + str(abs(n)) + " = " + str(val+n))
 		wordIns.append("P" + action+ str(n*(-1 if n<0 else 1)) + verb + str(val)) 
-	if n<0:
+	if n+val <0:
+		negativeResult = true
+		abacusNegative = true
+		var borrowneeded = 10**(len(str(abs(n))))
+		totalBorrowed += borrowneeded
+		wordIns.append("S" + "Since this calulation will result in a negative number, add " + str(borrowneeded))
+		instructions.append(add(borrowneeded,false,false)[-1])
+		for i in str(borrowneeded): if i != "0": wordIns.pop_back()
+	if n <0:
+		nNegative = -1
 		n*=-1
-		negative = -1
-		if n > val:
-			wordIns.append("S" + "Since this calulation will result in a negative number, add 1 to rod " + char(73-1*(len(str(n))+1)))
-			target[-1*(len(str(n))+1)] += 1
-			instructions.append(target.duplicate())
-			negativeResult = true
 	var digits = str(n).split("")
 	for i in range(digits.size()):
 		target = target if instructions.is_empty() else instructions[-1]
-		instructions.append_array(add_digit(target,negative*int(digits[-1-i]),unitRod-i))
-	if update:
+		instructions.append_array(add_digit(target,nNegative*int(digits[-1-i]),unitRod-i))
+	if int(str(totalBorrowed).right(-1)) and update and not negativeResult:
+		var temp = int(str(totalBorrowed).right(-1))
+		wordIns.append("S" + "Since we borrowed " + str(totalBorrowed) + " earlier, subtract " +str(int(str(totalBorrowed).right(-1))))
+		totalBorrowed-= temp
+		instructions.append(add(temp*-1,false,false,instructions[-1])[-1])
+		wordIns.pop_back()
+	if final_update:
 		if negativeResult:
 			wordIns.append("S" + "The result is negative, read the compliment for the negative answer")
-			var comp = str(10**(len(str(int("".join(instructions[-1])))))-int("".join(instructions[-1])))
+			var comp = str(totalBorrowed-int("".join(instructions[-1])))
 			var compArray = [0,0,0,0,0,0,0,0]
 			for i in range(len(comp)):
 				compArray[-1-i] = int(comp[-1-i])
 			instructions.append(compArray)
-		abacus = instructions[-1]
+
+	if update: abacus = instructions[-1]
 	return instructions
+
 #Determines spacing then calls add multiple times per digit of n
-func multiply(n):
+func multiply(n,_final):
 	var val = int("".join(abacus))
 	var digits = str(n-1).split("")
 	var instructions = []
@@ -167,9 +160,8 @@ func multiply(n):
 			for k in range(len(str(abacus[i]*int(digits[j])*10**(len(digits)-j-1)))-1,-1,-1):
 				multWords += char(65+i-k)
 			wordIns.append(multWords)
-			var add_ins = add(int(digits[j])*abacus[i]*10**(len(digits)-j+len(abacus)-i-2),false,target)
+			var add_ins = add(int(digits[j])*abacus[i]*10**(len(digits)-j+len(abacus)-i-2),false,false,target)
 			instructions.append_array(add_ins)
-
 	var cleared = instructions[-1].duplicate()
 	for i in range(len(digits)):
 		cleared[i] = 0
@@ -180,3 +172,41 @@ func multiply(n):
 	wordIns.append(clearWords)
 	abacus = cleared
 	return instructions
+
+func parse(s):
+	totalBorrowed = 0
+	abacusNegative = false
+	var operations:Array[Callable] = []
+	var split = s.split(" ")
+	if not split[0].is_valid_int():
+		equationDisplay.set_text("Invalid Syntax!")
+		return
+	var val = int(split[0])
+	for i in range(1,len(split)-1,2):
+		if not split[i+1].is_valid_int(): 
+			equationDisplay.set_text("Invalid Syntax!")
+			return
+		if split[i] == "+": 
+			operations.append(operation.bind(add,int(split[i+1]),i==len(split)-2))
+			val += int(split[i+1])
+		if split[i] == "-": 
+			operations.append(operation.bind(add,int(split[i+1]),i==len(split)-2,-1))
+			val -= int(split[i+1])
+		if split[i] == "×": 
+			operations.append(operation.bind(multiply,int(split[i+1]),i==len(split)-2))
+			if 8 - len(str(val)) < 2*len(split[i+1]):
+				equationDisplay.set_text("Not enough room in the abacus!")
+				return
+			val *= int(split[i+1])
+	if len(str(val)) > 8:
+		equationDisplay.set_text("Not enough room in the abacus!")
+		return
+	set_val(int(split[0]))
+	var typing = get_parent().find_child("Typing")
+	typing.find_child("displayMask").find_child("displayLabel").set_text("= " + str(val))
+	typing.find_child("displayMask").find_child("displayLabel").set_position(typing.initPos)
+	typing.find_child("displayMask").find_child("displayLabel").set_size(typing.initSize)
+	for i in operations:
+		i.call()
+		await calculationDone
+	emit_signal("allDone")

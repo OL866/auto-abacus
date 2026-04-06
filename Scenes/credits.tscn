@@ -80,7 +80,7 @@ material = SubResource("ShaderMaterial_1bamb")
 layout_mode = 0
 offset_right = 1024.0
 offset_bottom = 600.0
-color = Color(0.083911724, 0.08391165, 0.083911695, 1)
+color = Color(0.21176471, 0.21176471, 0.21176471, 1)
 metadata/_edit_lock_ = true
 
 [node name="back" type="Control" parent="." unique_id=882944092]

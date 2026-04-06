@@ -1,7 +1,6 @@
 extends Control
 
 var digits = []
-var delay = 0.05
 func _ready() -> void:
 	for i in range(8):
 		var digit = RichTextLabel.new()
@@ -22,10 +21,10 @@ func _ready() -> void:
 		lex.set_vertical_alignment(VERTICAL_ALIGNMENT_CENTER)
 		add_child(lex)
 
-func display(abacus):
+func display(abacus,duration):
 	for i in range(-1,-9,-1):
 		if digits[i].get_text() != str(abacus[i]):
 			var diff = abacus[i] - int(digits[i].get_text()) 
 			for j in range(1,abs(diff)+1):
 				digits[i].set_text(str(int(digits[i].get_text())+sign(diff)*1))
-				await get_tree().create_timer(delay).timeout
+				await get_tree().create_timer(duration/abs(diff)).timeout
