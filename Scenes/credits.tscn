@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://blntxv4kml2cb"]
 
 [ext_resource type="Shader" uid="uid://r4r1he2nel45" path="res://grid.gdshader" id="1_gryuy"]
-[ext_resource type="Script" uid="uid://b5scjssul4bd6" path="res://bead.gd" id="2_ccovl"]
+[ext_resource type="Script" uid="uid://b5scjssul4bd6" path="res://Scripts/bead.gd" id="2_ccovl"]
+[ext_resource type="Texture2D" uid="uid://btj2oahym3jte" path="res://Assets/WesternMathExpoComp-QRCode (1).png" id="3_1bamb"]
+[ext_resource type="Texture2D" uid="uid://bqr26uoducu5d" path="res://Assets/GHAAQR.png" id="4_xelri"]
+[ext_resource type="Texture2D" uid="uid://b757pgttgx4ew" path="res://Assets/CMSlogo (1).png" id="5_7emq5"]
+[ext_resource type="Texture2D" uid="uid://bskum6sk4foce" path="res://Assets/Fields_Institute_Logo (1).png" id="6_803yc"]
+[ext_resource type="Texture2D" uid="uid://u0a5paw48258" path="res://Assets/Western-Science (1).png" id="7_1wbrc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bamb"]
 shader = ExtResource("1_gryuy")
@@ -24,23 +29,7 @@ corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uah1q"]
 bg_color = Color(1, 1, 1, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7emq5"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -59,6 +48,52 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_803yc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccovl"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bamb"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7emq5"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_803yc"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1wbrc"]
 
 [node name="Credits" type="Control" unique_id=1389431551]
 layout_mode = 3
@@ -116,7 +151,7 @@ offset_right = 112.0
 offset_bottom = 360.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_xelri")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_uah1q")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xelri")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_gryuy")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_803yc")
 text = "Main Menu"
@@ -145,4 +180,334 @@ offset_right = 204.0
 offset_bottom = 20.0
 color = Color(0, 0, 0, 1)
 
+[node name="WZ" type="Control" parent="." unique_id=1739937758]
+anchors_preset = 0
+offset_left = 536.0
+offset_top = -80.0
+offset_right = 576.0
+offset_bottom = -40.0
+
+[node name="Control" type="Control" parent="WZ" unique_id=1692948764]
+anchors_preset = 0
+offset_left = -128.0
+offset_top = -24.0
+offset_right = -128.0
+offset_bottom = -24.0
+
+[node name="Pole" type="ColorRect" parent="WZ/Control" unique_id=929057563]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 680.0
+
+[node name="Pole2" type="ColorRect" parent="WZ/Control" unique_id=733169291]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 28.0
+offset_bottom = 680.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="WZ" unique_id=740923137 node_paths=PackedStringArray("disableBtns")]
+layout_mode = 0
+offset_left = -240.0
+offset_top = -384.0
+offset_right = 16.0
+offset_bottom = -304.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ccovl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1bamb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
+disabled = true
+text = "Assembly/Printing    "
+script = ExtResource("2_ccovl")
+scenePath = "res://Scenes/Abacus.tscn"
+disableBtns = [null, NodePath("."), null]
+
+[node name="Button2" type="Button" parent="WZ" unique_id=1228461264 node_paths=PackedStringArray("disableBtns")]
+layout_mode = 0
+offset_left = -240.0
+offset_top = -464.0
+offset_right = 16.0
+offset_bottom = -384.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ccovl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1bamb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
+disabled = true
+text = "Server/Networking"
+script = ExtResource("2_ccovl")
+offSetY = -80.0
+delay = 0.15
+scenePath = "res://Scenes/Abacus.tscn"
+disableBtns = [null, NodePath("."), null]
+
+[node name="Button3" type="Button" parent="WZ" unique_id=1715926244 node_paths=PackedStringArray("disableBtns")]
+layout_mode = 0
+offset_left = -240.0
+offset_top = -544.0
+offset_right = 16.0
+offset_bottom = -464.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ccovl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1bamb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
+disabled = true
+text = "Server/Networking"
+script = ExtResource("2_ccovl")
+offSetY = -160.0
+delay = 0.3
+scenePath = "res://Scenes/Abacus.tscn"
+disableBtns = [null, NodePath("."), null]
+
+[node name="Button4" type="Button" parent="WZ" unique_id=286012083 node_paths=PackedStringArray("disableBtns")]
+layout_mode = 0
+offset_left = -240.0
+offset_top = -624.0
+offset_right = 16.0
+offset_bottom = -544.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ccovl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1bamb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
+disabled = true
+text = "William Zanin"
+script = ExtResource("2_ccovl")
+offSetY = -240.0
+delay = 0.45
+scenePath = "res://Scenes/Abacus.tscn"
+disableBtns = [null, NodePath("."), null]
+
+[node name="Base" type="Control" parent="WZ" unique_id=1976641792]
+anchors_preset = 0
+offset_left = -248.0
+offset_top = 656.0
+offset_right = -208.0
+offset_bottom = 696.0
+
+[node name="Base" type="ColorRect" parent="WZ/Base" unique_id=823176093]
+layout_mode = 0
+offset_left = -8.0
+offset_right = 280.0
+offset_bottom = 24.0
+
+[node name="Base2" type="ColorRect" parent="WZ/Base" unique_id=606836026]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = 276.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="OL" type="Control" parent="." unique_id=329088730]
+anchors_preset = 0
+offset_left = 256.0
+offset_top = -80.0
+offset_right = 296.0
+offset_bottom = -40.0
+
+[node name="Control" type="Control" parent="OL" unique_id=1225603455]
+anchors_preset = 0
+offset_left = -128.0
+offset_top = -24.0
+offset_right = -128.0
+offset_bottom = -24.0
+
+[node name="Pole" type="ColorRect" parent="OL/Control" unique_id=1028123499]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 680.0
+
+[node name="Pole2" type="ColorRect" parent="OL/Control" unique_id=1415586405]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 28.0
+offset_bottom = 680.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="OL" unique_id=291158664 node_paths=PackedStringArray("disableBtns")]
+layout_mode = 0
+offset_left = -240.0
+offset_top = -384.0
+offset_right = 16.0
+offset_bottom = -304.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ccovl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1bamb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
+disabled = true
+text = "Assembly/Printing    "
+script = ExtResource("2_ccovl")
+scenePath = "res://Scenes/Abacus.tscn"
+disableBtns = [null, NodePath("."), null]
+
+[node name="Button2" type="Button" parent="OL" unique_id=466785630 node_paths=PackedStringArray("disableBtns")]
+layout_mode = 0
+offset_left = -240.0
+offset_top = -464.0
+offset_right = 16.0
+offset_bottom = -384.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ccovl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1bamb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
+disabled = true
+text = "Server/Networking"
+script = ExtResource("2_ccovl")
+offSetY = -80.0
+delay = 0.15
+scenePath = "res://Scenes/Abacus.tscn"
+disableBtns = [null, NodePath("."), null]
+
+[node name="Button3" type="Button" parent="OL" unique_id=560114576 node_paths=PackedStringArray("disableBtns")]
+layout_mode = 0
+offset_left = -240.0
+offset_top = -544.0
+offset_right = 16.0
+offset_bottom = -464.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ccovl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1bamb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
+disabled = true
+text = "Server/Networking"
+script = ExtResource("2_ccovl")
+offSetY = -160.0
+delay = 0.3
+scenePath = "res://Scenes/Abacus.tscn"
+disableBtns = [null, NodePath("."), null]
+
+[node name="Button4" type="Button" parent="OL" unique_id=1621085264 node_paths=PackedStringArray("disableBtns")]
+layout_mode = 0
+offset_left = -240.0
+offset_top = -624.0
+offset_right = 16.0
+offset_bottom = -544.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ccovl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1bamb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
+disabled = true
+text = "Owen Lim"
+script = ExtResource("2_ccovl")
+offSetY = -240.0
+delay = 0.45
+scenePath = "res://Scenes/Abacus.tscn"
+disableBtns = [null, NodePath("."), null]
+
+[node name="Base" type="Control" parent="OL" unique_id=1908766298]
+anchors_preset = 0
+offset_left = -248.0
+offset_top = 656.0
+offset_right = -208.0
+offset_bottom = 696.0
+
+[node name="Base" type="ColorRect" parent="OL/Base" unique_id=1660226155]
+layout_mode = 0
+offset_left = -8.0
+offset_right = 280.0
+offset_bottom = 24.0
+
+[node name="Base2" type="ColorRect" parent="OL/Base" unique_id=654254425]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = 276.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=830980058]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 16.0
+offset_right = 832.0
+offset_bottom = 108.0
+theme_override_font_sizes/normal_font_size = 12
+text = "An entry to the Western Mathematics Exposition Competition 2026, organized by Western Mathematics. "
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=1231528449]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 128.0
+offset_right = 1016.0
+offset_bottom = 200.0
+theme_override_font_sizes/normal_font_size = 12
+text = "This Competition is made possible by the generosity of our donors and the support of the Department of Mathematics, School of Mathematical and Statistical Sciences, The Fields Institute for Research in Mathematical Sciences, and the Canadian Math Society."
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1436866222]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 346.0
+offset_right = 832.0
+offset_bottom = 438.0
+theme_override_font_sizes/normal_font_size = 12
+text = "UI program available on 
+https://github.com/OL866/auto-abacus   "
+fit_content = true
+
+[node name="WesternMathExpoCompQrCode(1)" type="Sprite2D" parent="." unique_id=163356310]
+position = Vector2(887.9999, 64)
+scale = Vector2(0.19846961, 0.19846961)
+texture = ExtResource("3_1bamb")
+
+[node name="Ghaaqr" type="Sprite2D" parent="." unique_id=854626000]
+position = Vector2(888, 386)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_xelri")
+
+[node name="CmSlogo(1)" type="Sprite2D" parent="." unique_id=1429363676]
+position = Vector2(648, 240)
+scale = Vector2(0.5792079, 0.5792079)
+texture = ExtResource("5_7emq5")
+
+[node name="FieldsInstituteLogo(1)" type="Sprite2D" parent="." unique_id=1561128584]
+position = Vector2(768.00006, 264)
+scale = Vector2(0.32220218, 0.32220215)
+texture = ExtResource("6_803yc")
+
+[node name="WesternScience(1)" type="Sprite2D" parent="." unique_id=359632600]
+position = Vector2(920, 239.99998)
+scale = Vector2(0.3185713, 0.3185714)
+texture = ExtResource("7_1wbrc")
+
 [connection signal="pressed" from="back/Button" to="back/Button" method="_on_pressed"]
+[connection signal="pressed" from="WZ/Button" to="WZ/Button" method="_on_pressed"]
+[connection signal="pressed" from="WZ/Button2" to="WZ/Button2" method="_on_pressed"]
+[connection signal="pressed" from="WZ/Button3" to="WZ/Button3" method="_on_pressed"]
+[connection signal="pressed" from="WZ/Button4" to="WZ/Button4" method="_on_pressed"]
+[connection signal="pressed" from="OL/Button" to="OL/Button" method="_on_pressed"]
+[connection signal="pressed" from="OL/Button2" to="OL/Button2" method="_on_pressed"]
+[connection signal="pressed" from="OL/Button3" to="OL/Button3" method="_on_pressed"]
+[connection signal="pressed" from="OL/Button4" to="OL/Button4" method="_on_pressed"]

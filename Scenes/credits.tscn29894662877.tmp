@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://blntxv4kml2cb"]
+
+[ext_resource type="Shader" uid="uid://r4r1he2nel45" path="res://grid.gdshader" id="1_gryuy"]
+[ext_resource type="Script" uid="uid://b5scjssul4bd6" path="res://bead.gd" id="2_ccovl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bamb"]
+shader = ExtResource("1_gryuy")
+shader_parameter/size = Vector2(1024, 600)
+shader_parameter/line_width = 0.1
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/grid_size = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xelri"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uah1q"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gryuy"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.09019608, 0.09019608, 0.09019608, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_803yc"]
+
+[node name="Credits" type="Control" unique_id=1389431551]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grid2" type="ColorRect" parent="." unique_id=1204410072]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Grid" type="ColorRect" parent="." unique_id=1950602099]
+material = SubResource("ShaderMaterial_1bamb")
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.21176471, 0.21176471, 0.21176471, 1)
+metadata/_edit_lock_ = true
+
+[node name="back" type="Control" parent="." unique_id=882944092]
+anchors_preset = 0
+offset_left = 832.0
+offset_top = 560.0
+offset_right = 872.0
+offset_bottom = 600.0
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="back" unique_id=1177107220]
+anchors_preset = 0
+offset_top = -88.0
+offset_bottom = -88.0
+
+[node name="Pole" type="ColorRect" parent="back/Control" unique_id=1933792136]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 680.0
+
+[node name="Pole2" type="ColorRect" parent="back/Control" unique_id=1228546260]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 28.0
+offset_bottom = 680.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="back" unique_id=2092049257]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 296.0
+offset_right = 112.0
+offset_bottom = 360.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_xelri")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uah1q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xelri")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_gryuy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_803yc")
+text = "Main Menu"
+script = ExtResource("2_ccovl")
+targetY = 64
+down = false
+scenePath = "res://Scenes/titleScreen.tscn"
+
+[node name="Base" type="Control" parent="back" unique_id=1562809848]
+anchors_preset = 0
+offset_left = -88.0
+offset_top = -112.0
+offset_right = -48.0
+offset_bottom = -72.0
+
+[node name="Base" type="ColorRect" parent="back/Base" unique_id=1554078024]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 24.0
+
+[node name="Base2" type="ColorRect" parent="back/Base" unique_id=1435949613]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 204.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="back/Button" to="back/Button" method="_on_pressed"]

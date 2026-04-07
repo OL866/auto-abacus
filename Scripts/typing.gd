@@ -45,13 +45,7 @@ func typing(s):
 		sizeChanges.pop_back()
 		return
 	if s == "=":
-		controller.parse(displayLabel.get_text())
-		toClear=true
-		for i in btns:
-			i.set_disabled(true)
-		await controller.allDone
-		for i in btns:
-			i.set_disabled(false)
+		controller.parse(displayLabel.get_text(),btns)
 		return
 	if s == "+" or s == "-":
 		displayLabel.set_text(displayLabel.get_text()+" "+s+" ")

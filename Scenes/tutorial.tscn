@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmrtxygfke1ti"]
 
 [ext_resource type="Shader" uid="uid://r4r1he2nel45" path="res://grid.gdshader" id="1_omtrn"]
-[ext_resource type="Script" uid="uid://b5scjssul4bd6" path="res://bead.gd" id="2_i6t4g"]
+[ext_resource type="Script" uid="uid://b5scjssul4bd6" path="res://Scripts/bead.gd" id="2_i6t4g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p1f1o"]
 shader = ExtResource("1_omtrn")
@@ -24,10 +24,6 @@ corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6t4g"]
 bg_color = Color(1, 1, 1, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
@@ -36,10 +32,10 @@ corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8jf4"]
 bg_color = Color(0, 0, 0, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12

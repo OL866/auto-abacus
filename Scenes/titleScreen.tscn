@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d1rlvmd1v84gg"]
 
 [ext_resource type="Shader" uid="uid://r4r1he2nel45" path="res://grid.gdshader" id="1_sf2e2"]
-[ext_resource type="Script" uid="uid://b5scjssul4bd6" path="res://bead.gd" id="2_tic01"]
+[ext_resource type="Script" uid="uid://b5scjssul4bd6" path="res://Scripts/bead.gd" id="2_tic01"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tic01"]
 shader = ExtResource("1_sf2e2")
@@ -24,22 +24,18 @@ corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tic01"]
 bg_color = Color(1, 1, 1, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3b4xv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ap1vi"]
 bg_color = Color(0, 0, 0, 1)
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
@@ -123,7 +119,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_yqvil")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tic01")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3b4xv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ap1vi")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2hmnx")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tic01")
 text = "Tutorial"
@@ -184,7 +180,7 @@ theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
 theme_override_styles/normal = SubResource("StyleBoxFlat_yqvil")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tic01")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3b4xv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ap1vi")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_w6dbl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tic01")
 text = "Abacus"
@@ -246,7 +242,7 @@ theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
 theme_override_styles/normal = SubResource("StyleBoxFlat_yqvil")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tic01")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3b4xv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ap1vi")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_w6dbl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tic01")
 text = "Credits"

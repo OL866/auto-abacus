@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://catdntktl31bc"]
 
 [ext_resource type="Shader" uid="uid://r4r1he2nel45" path="res://grid.gdshader" id="1_cfylj"]
-[ext_resource type="Script" uid="uid://c1llluff6esv8" path="res://Scripts/typing.gd" id="2_5hm38"]
-[ext_resource type="Script" uid="uid://qiwc0mi4vmns" path="res://Scripts/displayManager.gd" id="2_iofns"]
-[ext_resource type="Script" uid="uid://c5swsem2i20sv" path="res://Scripts/controller.gd" id="2_wofsa"]
-[ext_resource type="Script" uid="uid://dse6jtj58uqsv" path="res://Scripts/network.gd" id="3_iofns"]
-[ext_resource type="Script" uid="uid://b5scjssul4bd6" path="res://Scripts/bead.gd" id="4_euto5"]
-[ext_resource type="Script" uid="uid://b3ak8lbhb3vhn" path="res://Scripts/feedTape.gd" id="7_5hm38"]
-[ext_resource type="Script" uid="uid://dq2t8waftphss" path="res://Scripts/beadToggle.gd" id="7_euto5"]
+[ext_resource type="Script" uid="uid://c1llluff6esv8" path="res://Scenes/typing.gd" id="2_5hm38"]
+[ext_resource type="Script" uid="uid://qiwc0mi4vmns" path="res://displayManager.gd" id="2_iofns"]
+[ext_resource type="Script" uid="uid://c5swsem2i20sv" path="res://controller.gd" id="2_wofsa"]
+[ext_resource type="Script" uid="uid://dse6jtj58uqsv" path="res://network.gd" id="3_iofns"]
+[ext_resource type="Script" uid="uid://b5scjssul4bd6" path="res://bead.gd" id="4_euto5"]
+[ext_resource type="Script" uid="uid://b3ak8lbhb3vhn" path="res://feedTape.gd" id="7_5hm38"]
+[ext_resource type="Script" uid="uid://dq2t8waftphss" path="res://beadToggle.gd" id="7_euto5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_48q88"]
 shader = ExtResource("1_cfylj")
@@ -598,9 +598,9 @@ color = Color(0, 0, 0, 1)
 [node name="fastMode" type="RichTextLabel" parent="." unique_id=1154479395]
 layout_mode = 0
 offset_left = 896.0
-offset_top = 384.0
+offset_top = 392.0
 offset_right = 1024.0
-offset_bottom = 408.0
+offset_bottom = 416.0
 text = "Step-By-Step "
 horizontal_alignment = 1
 

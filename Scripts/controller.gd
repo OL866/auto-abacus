@@ -1,5 +1,4 @@
 extends Control
-
 var unitRod = -1
 var abacus = []
 var displayInstructions = []
@@ -8,7 +7,8 @@ var insIdx = 0
 var stepWord = false
 
 signal calculationDone
-signal allDone
+
+var fastMode = false
 
 @onready var displayManager = get_parent().find_child("abacusDisplay")
 @export var feedTape:Control
@@ -20,9 +20,7 @@ var abacusNegative = false
 var totalBorrowed = 0
 func _ready() -> void:
 	set_val(0)
-
-	stepBtn.pressed.connect(step)
-	
+	stepBtn.pressed.connect(step.bind(true))
 	#steps.set_text("")
 	#subSteps.set_text("")
 	#equationDisplay.set_text("")
@@ -30,10 +28,17 @@ func _ready() -> void:
 func operation(o, n,final=false, neg=1):
 	wordIns.clear()
 	var ins = o.call(int(n*neg),final)
-	stepBtn.set_disabled(false)
 	displayInstructions = ins
 	feedTape.setup(wordIns)
-func step():
+	if not fastMode:
+		stepBtn.set_disabled(false)
+	else:
+		for i in range(len(displayInstructions)):
+			step(false)
+			await get_tree().create_timer(0.2).timeout
+func step(btn):
+	#networker.send_data(displayInstructions[insIdx])
+	if btn: stepBtn.set_disabled(true)
 	displayManager.display(displayInstructions[insIdx],0.2)
 	insIdx+=1
 	if insIdx >= len(displayInstructions):
@@ -42,23 +47,24 @@ func step():
 		displayInstructions.clear()
 		insIdx = 0
 		equationDisplay.set_text("")
-		stepBtn.set_disabled(true)
+		if btn:stepBtn.set_disabled(true)
 		await feedTape.killDone
 		emit_signal("calculationDone")
 		return
-	feedTape.move(stepBtn)
-	#networker.send_data(displayInstructions[insIdx])
-
-
+	feedTape.move()
+	await feedTape.moveDone
+	if btn: stepBtn.set_disabled(false)
 #basic setter
 func set_val(v):
 	abacus = [0,0,0,0,0,0,0,0]
 	var digits = str(v).split("")
 	if len(digits) > len(abacus):
 		equationDisplay.set_text("Not enough room in the abacus!")
+		emit_signal("allDone")
 		return 
 	for i in range(len(digits)):
 		abacus[unitRod-i] = int(digits[-1-i])
+	#networker.send_data(abacus)
 	displayManager.display(abacus,0.2)
 
 #adding digits, called recursively for carrying
@@ -126,7 +132,10 @@ func add(n,final_update=false,update=true,target=abacus):
 			for i in range(len(comp)):
 				compArray[-1-i] = int(comp[-1-i])
 			instructions.append(compArray)
-
+		elif totalBorrowed:
+			wordIns.append("S" + "Since we borrowed " + str(totalBorrowed) + " earlier, subtract " +str(totalBorrowed))
+			instructions.append(add(totalBorrowed*-1,false,false,instructions[-1])[-1])
+			wordIns.pop_back()
 	if update: abacus = instructions[-1]
 	return instructions
 
@@ -173,7 +182,7 @@ func multiply(n,_final):
 	abacus = cleared
 	return instructions
 
-func parse(s):
+func parse(s,btns):
 	totalBorrowed = 0
 	abacusNegative = false
 	var operations:Array[Callable] = []
@@ -206,7 +215,11 @@ func parse(s):
 	typing.find_child("displayMask").find_child("displayLabel").set_text("= " + str(val))
 	typing.find_child("displayMask").find_child("displayLabel").set_position(typing.initPos)
 	typing.find_child("displayMask").find_child("displayLabel").set_size(typing.initSize)
+	typing.toClear = true
+	for i in btns:
+		i.set_disabled(true)
 	for i in operations:
 		i.call()
 		await calculationDone
-	emit_signal("allDone")
+	for i in btns:
+		i.set_disabled(false)

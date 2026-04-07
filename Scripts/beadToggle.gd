@@ -2,7 +2,7 @@ extends Button
 
 @onready var destination = Vector2(position.x,get_parent().find_child("Base").position.y-size.y)
 @onready var initPos = position
-
+@onready var controller = get_tree().get_root().get_child(1).find_child("Controller")
 
 var moved = false
 
@@ -14,5 +14,6 @@ func _on_pressed() -> void:
 		.set_trans(Tween.TRANS_QUAD)\
 		.set_ease(Tween.EASE_OUT)
 	await tween.finished
+	controller.fastMode = !controller.fastMode
 	moved = !moved
 	set_disabled(false)

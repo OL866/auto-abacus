@@ -4,6 +4,7 @@ var labels = []
 @onready var headings = find_child("headings")
 @onready var tape = find_child("tape")
 @onready var graveyard = find_child("graveyard")
+signal moveDone
 var index = 0
 signal killDone
 func kill():
@@ -52,8 +53,7 @@ func setup(ins):
 		(tape if labels else headings).add_child(l)
 		labels.append(l)
 
-func move(stepBtn):
-	stepBtn.set_disabled(true)
+func move():
 	var tween = create_tween()
 	tween.tween_property(tape, "position", tape.position-Vector2(0,labels[index+1].size.y+2) , 0.2)\
 		.set_trans(Tween.TRANS_QUAD)
@@ -81,4 +81,4 @@ func move(stepBtn):
 			fadeTween.tween_property(i, "modulate:a", i.modulate.a - 0.2, 0.2)
 		index+=1
 		await tTween.finished
-	stepBtn.set_disabled(false)
+	emit_signal("moveDone")

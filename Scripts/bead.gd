@@ -1,10 +1,11 @@
 extends Button
+@export var offSetY  = 0.0
 @export var targetY = 80
 @export var down = true
 @export var delay:float
 @export_file_path("*.tscn") var scenePath
 @onready var targetScene = load(scenePath)
-@onready var destination = Vector2(position.x,get_parent().find_child("Base").position.y - (size.y if down else get_parent().find_child("Base").find_child("Base").size.y*-1))
+@onready var destination = Vector2(position.x,get_parent().find_child("Base").position.y + offSetY - (size.y if down else get_parent().find_child("Base").find_child("Base").size.y*-1))
 @onready var initPos = position
 @export var disableBtns:Array[Button]
 
@@ -23,6 +24,7 @@ func _on_pressed() -> void:
 		.set_trans(Tween.TRANS_QUAD)\
 		.set_ease(Tween.EASE_OUT)
 	going = true
+
 func _process(_delta: float) -> void:
 	if position.y <= targetY and going and down:
 		fader_load(scenePath)

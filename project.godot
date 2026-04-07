@@ -13,7 +13,7 @@ config_version=5
 config/name="auto-abacus"
 run/main_scene="uid://d1rlvmd1v84gg"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
 
 [autoload]
 
@@ -23,7 +23,6 @@ Fade="*uid://ckv6rq8vxx56n"
 
 window/size/viewport_width=1024
 window/size/viewport_height=600
-window/size/mode=4
 
 [physics]
 

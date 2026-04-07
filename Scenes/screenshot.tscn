@@ -1,0 +1,255 @@
+[gd_scene format=3 uid="uid://c53tkpqpk2oks"]
+
+[ext_resource type="Script" uid="uid://7ka4agwsg7la" path="res://Scripts/sub_viewport.gd" id="1_c62x8"]
+[ext_resource type="Shader" uid="uid://r4r1he2nel45" path="res://grid.gdshader" id="2_3vysk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cr6yu"]
+shader = ExtResource("2_3vysk")
+shader_parameter/size = Vector2(1024, 600)
+shader_parameter/line_width = 0.1
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/grid_size = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmgul"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8lauo"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmha2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aio3n"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y84j6"]
+
+[node name="A" type="Control" unique_id=2108222522]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1477608185]
+transparent_bg = true
+size = Vector2i(288, 704)
+script = ExtResource("1_c62x8")
+
+[node name="Grid" type="ColorRect" parent="SubViewport" unique_id=1546527579]
+visible = false
+material = SubResource("ShaderMaterial_cr6yu")
+offset_right = 1920.0
+offset_bottom = 1280.0
+color = Color(0.21176471, 0.21176471, 0.21176471, 1)
+metadata/_edit_lock_ = true
+
+[node name="OL" type="Control" parent="SubViewport" unique_id=748303093]
+modulate = Color(0.22094157, 0.2209414, 0.2209414, 1)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 260.0
+offset_top = 32.0
+offset_right = 300.0
+offset_bottom = 72.0
+
+[node name="Control" type="Control" parent="SubViewport/OL" unique_id=850933806]
+anchors_preset = 0
+offset_left = -132.0
+offset_top = -24.0
+offset_right = -132.0
+offset_bottom = -24.0
+
+[node name="Pole" type="ColorRect" parent="SubViewport/OL/Control" unique_id=1523566296]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 680.0
+
+[node name="Pole2" type="ColorRect" parent="SubViewport/OL/Control" unique_id=552581261]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 28.0
+offset_bottom = 680.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="SubViewport/OL" unique_id=1885364318]
+layout_mode = 0
+offset_left = -228.0
+offset_top = 180.0
+offset_right = -4.0
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_dmgul")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8lauo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bmha2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_aio3n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y84j6")
+disabled = true
+
+[node name="Button5" type="Button" parent="SubViewport/OL" unique_id=428673042]
+layout_mode = 0
+offset_left = -228.0
+offset_top = -8.0
+offset_right = -4.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_dmgul")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8lauo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bmha2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_aio3n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y84j6")
+disabled = true
+
+[node name="Button2" type="Button" parent="SubViewport/OL" unique_id=2074783190]
+layout_mode = 0
+offset_left = -228.0
+offset_top = 408.0
+offset_right = -4.0
+offset_bottom = 488.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_dmgul")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8lauo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bmha2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_aio3n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y84j6")
+disabled = true
+
+[node name="Button3" type="Button" parent="SubViewport/OL" unique_id=246092758]
+layout_mode = 0
+offset_left = -228.0
+offset_top = 568.0
+offset_right = -4.0
+offset_bottom = 648.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_dmgul")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8lauo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bmha2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_aio3n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y84j6")
+disabled = true
+
+[node name="Button4" type="Button" parent="SubViewport/OL" unique_id=106352550]
+layout_mode = 0
+offset_left = -228.0
+offset_top = 488.0
+offset_right = -4.0
+offset_bottom = 568.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_dmgul")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8lauo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bmha2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_aio3n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y84j6")
+disabled = true
+
+[node name="Base" type="Control" parent="SubViewport/OL" unique_id=1742736084]
+anchors_preset = 0
+offset_left = -252.0
+offset_top = 648.0
+offset_right = -212.0
+offset_bottom = 688.0
+
+[node name="Base" type="ColorRect" parent="SubViewport/OL/Base" unique_id=827811519]
+layout_mode = 0
+offset_left = -8.0
+offset_right = 280.0
+offset_bottom = 24.0
+
+[node name="Base2" type="ColorRect" parent="SubViewport/OL/Base" unique_id=1110436679]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = 276.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="Base2" type="Control" parent="SubViewport/OL" unique_id=827610207]
+anchors_preset = 0
+offset_left = -252.0
+offset_top = 156.0
+offset_right = -212.0
+offset_bottom = 196.0
+
+[node name="Base" type="ColorRect" parent="SubViewport/OL/Base2" unique_id=835809810]
+layout_mode = 0
+offset_left = -8.0
+offset_right = 280.0
+offset_bottom = 24.0
+
+[node name="Base2" type="ColorRect" parent="SubViewport/OL/Base2" unique_id=96587182]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = 276.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="Base3" type="Control" parent="SubViewport/OL" unique_id=1462793588]
+anchors_preset = 0
+offset_left = -252.0
+offset_top = -32.0
+offset_right = -212.0
+offset_bottom = 8.0
+
+[node name="Base" type="ColorRect" parent="SubViewport/OL/Base3" unique_id=604439226]
+layout_mode = 0
+offset_left = -8.0
+offset_right = 280.0
+offset_bottom = 24.0
+
+[node name="Base2" type="ColorRect" parent="SubViewport/OL/Base3" unique_id=859577148]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = 276.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="SubViewport/OL/Button" to="SubViewport/OL/Button" method="_on_pressed"]
+[connection signal="pressed" from="SubViewport/OL/Button5" to="SubViewport/OL/Button5" method="_on_pressed"]
+[connection signal="pressed" from="SubViewport/OL/Button2" to="SubViewport/OL/Button2" method="_on_pressed"]
+[connection signal="pressed" from="SubViewport/OL/Button3" to="SubViewport/OL/Button3" method="_on_pressed"]
+[connection signal="pressed" from="SubViewport/OL/Button4" to="SubViewport/OL/Button4" method="_on_pressed"]
