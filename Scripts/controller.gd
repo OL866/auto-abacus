@@ -7,6 +7,7 @@ var insIdx = 0
 var stepWord = false
 
 signal calculationDone
+signal allDone
 
 var fastMode = false
 
@@ -19,43 +20,45 @@ var fastMode = false
 var abacusNegative = false
 var totalBorrowed = 0
 func _ready() -> void:
-	set_val(0)
 	stepBtn.pressed.connect(step.bind(true))
-	#steps.set_text("")
-	#subSteps.set_text("")
-	#equationDisplay.set_text("")
 
 func operation(o, n,final=false, neg=1):
 	wordIns.clear()
 	var ins = o.call(int(n*neg),final)
 	displayInstructions = ins
-	feedTape.setup(wordIns)
 	if not fastMode:
+		feedTape.setup(wordIns)
 		stepBtn.set_disabled(false)
 	else:
 		for i in range(len(displayInstructions)):
 			step(false)
-			await get_tree().create_timer(0.2).timeout
+			await allDone
+
 func step(btn):
 	#networker.send_data(displayInstructions[insIdx])
 	if btn: stepBtn.set_disabled(true)
 	displayManager.display(displayInstructions[insIdx],0.2)
+	await displayManager.displayDone
 	insIdx+=1
 	if insIdx >= len(displayInstructions):
 		stepWord = false
-		feedTape.kill()
+		if btn:feedTape.kill()
 		displayInstructions.clear()
 		insIdx = 0
 		equationDisplay.set_text("")
 		if btn:stepBtn.set_disabled(true)
-		await feedTape.killDone
+		if btn: await feedTape.killDone
 		emit_signal("calculationDone")
 		return
-	feedTape.move()
-	await feedTape.moveDone
+	if btn: 
+		feedTape.move(0.2)
+		await feedTape.moveDone
 	if btn: stepBtn.set_disabled(false)
+	emit_signal("allDone")
+
 #basic setter
 func set_val(v):
+	print("Starting Set!")
 	abacus = [0,0,0,0,0,0,0,0]
 	var digits = str(v).split("")
 	if len(digits) > len(abacus):
@@ -66,6 +69,9 @@ func set_val(v):
 		abacus[unitRod-i] = int(digits[-1-i])
 	#networker.send_data(abacus)
 	displayManager.display(abacus,0.2)
+	await displayManager.displayDone
+	print("Ending Set")
+	emit_signal("allDone")
 
 #adding digits, called recursively for carrying
 func add_digit(aba,n,col) -> Array:
@@ -218,8 +224,11 @@ func parse(s,btns):
 	typing.toClear = true
 	for i in btns:
 		i.set_disabled(true)
+	get_parent().find_child("back").set_visible(false)
+	await allDone
 	for i in operations:
 		i.call()
 		await calculationDone
+	get_parent().find_child("back").set_visible(true)
 	for i in btns:
 		i.set_disabled(false)

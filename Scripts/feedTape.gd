@@ -53,9 +53,9 @@ func setup(ins):
 		(tape if labels else headings).add_child(l)
 		labels.append(l)
 
-func move():
+func move(duration):
 	var tween = create_tween()
-	tween.tween_property(tape, "position", tape.position-Vector2(0,labels[index+1].size.y+2) , 0.2)\
+	tween.tween_property(tape, "position", tape.position-Vector2(0,labels[index+1].size.y+2) , duration)\
 		.set_trans(Tween.TRANS_QUAD)
 	var ftween = create_tween()
 	ftween.tween_property(labels[index+1], "modulate:a",0.0, 0.18)
@@ -68,17 +68,17 @@ func move():
 		tape.get_child(0).reparent(headings)
 		tape.get_child(0).reparent(headings)
 		var tTween = create_tween()
-		tTween.tween_property(tape, "position", tape.position-Vector2(0,headings.get_child(-3).size.y+6) , 0.2)\
+		tTween.tween_property(tape, "position", tape.position-Vector2(0,headings.get_child(-3).size.y+6) , duration)\
 			.set_trans(Tween.TRANS_QUAD)
 		var hTween = create_tween()
-		hTween.tween_property(headings, "position", headings.position-Vector2(0,headings.get_child(-3).size.y+6) , 0.2)\
+		hTween.tween_property(headings, "position", headings.position-Vector2(0,headings.get_child(-3).size.y+6) , duration)\
 			.set_trans(Tween.TRANS_QUAD)
 		for i in headings.get_children().slice(-3,-5,-1):
 			var fadeTween = create_tween()
-			fadeTween.tween_property(i, "modulate:a", i.modulate.a - 0.7 , 0.2)
+			fadeTween.tween_property(i, "modulate:a", i.modulate.a - 0.7 , duration)
 		for i in headings.get_children().slice(-5,-7,-1):
 			var fadeTween = create_tween()
-			fadeTween.tween_property(i, "modulate:a", i.modulate.a - 0.2, 0.2)
+			fadeTween.tween_property(i, "modulate:a", i.modulate.a - 0.2, duration)
 		index+=1
 		await tTween.finished
 	emit_signal("moveDone")

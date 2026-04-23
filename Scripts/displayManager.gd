@@ -1,7 +1,15 @@
 extends Control
-
+var abacusPart = preload("res://Scenes/abacus_section.tscn")
+var sections = []
 var digits = []
+signal displayDone
+
 func _ready() -> void:
+	for i in range(8):
+		var section = abacusPart.instantiate()
+		section.set_position(Vector2(64*(i-4),-200))
+		add_child(section)
+		sections.append(section)
 	for i in range(8):
 		var digit = RichTextLabel.new()
 		digit.add_theme_font_size_override("normal_font_size", 32)
@@ -24,7 +32,8 @@ func _ready() -> void:
 func display(abacus,duration):
 	for i in range(-1,-9,-1):
 		if digits[i].get_text() != str(abacus[i]):
-			var diff = abacus[i] - int(digits[i].get_text()) 
-			for j in range(1,abs(diff)+1):
-				digits[i].set_text(str(int(digits[i].get_text())+sign(diff)*1))
-				await get_tree().create_timer(duration/abs(diff)).timeout
+			var numTween = create_tween()
+			sections[i].update_value(abacus[i],duration)
+			numTween.tween_method(func(v):digits[i].text = str(int(v)), 0, abacus[i], duration)
+			await sections[i].updateDone
+	emit_signal("displayDone")
