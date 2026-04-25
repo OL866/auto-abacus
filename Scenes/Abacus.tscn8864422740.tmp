@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://b5scjssul4bd6" path="res://Scripts/bead.gd" id="4_euto5"]
 [ext_resource type="Script" uid="uid://b3ak8lbhb3vhn" path="res://Scripts/feedTape.gd" id="7_5hm38"]
 [ext_resource type="Script" uid="uid://dq2t8waftphss" path="res://Scripts/beadToggle.gd" id="7_euto5"]
+[ext_resource type="PackedScene" uid="uid://b002a1c7wk60a" path="res://Scenes/abacus_section.tscn" id="7_q0668"]
+[ext_resource type="Script" uid="uid://b13ldofakl23f" path="res://Scripts/abacus_constructor.gd" id="10_8iype"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_48q88"]
 shader = ExtResource("1_cfylj")
@@ -49,50 +51,6 @@ corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j04uc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ticvw"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsn5b"]
-bg_color = Color(1, 1, 1, 1)
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73ajy"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1njti"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.4506483, 0.4506483, 0.45064825, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_em8oh"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 4
@@ -104,7 +62,7 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqjoa"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg6lk"]
 bg_color = Color(1, 1, 1, 1)
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 12
@@ -123,33 +81,24 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euto5"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hm38"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg6lk"]
-bg_color = Color(1, 1, 1, 1)
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qm6bl"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -455,37 +404,20 @@ autowrap_mode = 0
 vertical_alignment = 2
 text_direction = 1
 
-[node name="Step" type="Button" parent="." unique_id=541431889]
+[node name="Button5" type="Button" parent="." unique_id=541431889]
 layout_mode = 0
-offset_left = 416.0
-offset_top = 384.0
-offset_right = 608.0
-offset_bottom = 447.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_ticvw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_qsn5b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_73ajy")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1njti")
+offset_left = 148.0
+offset_top = 464.0
+offset_right = 228.0
+offset_bottom = 495.0
 disabled = true
 text = "Step"
 
-[node name="Cancel" type="Button" parent="." unique_id=1552408626]
-layout_mode = 0
-offset_left = 800.0
-offset_top = 32.0
-offset_right = 896.0
-offset_bottom = 96.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_ticvw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_qsn5b")
-theme_override_styles/hover = SubResource("StyleBoxFlat_73ajy")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1njti")
-disabled = true
-text = "Cancel"
-
 [node name="feedTape" type="Control" parent="." unique_id=1920686331]
 anchors_preset = 0
-offset_top = 220.0
+offset_top = 158.0
 offset_right = 40.0
-offset_bottom = 260.0
+offset_bottom = 198.0
 script = ExtResource("7_5hm38")
 
 [node name="headings" type="Control" parent="feedTape" unique_id=503970597]
@@ -505,18 +437,18 @@ offset_bottom = 40.0
 
 [node name="abacusDisplay" type="Control" parent="." unique_id=709283046]
 anchors_preset = 0
-offset_left = 256.0
-offset_top = 32.0
-offset_right = 304.0
-offset_bottom = 80.0
+offset_left = 512.0
+offset_top = 192.0
+offset_right = 560.0
+offset_bottom = 240.0
 script = ExtResource("2_iofns")
 
 [node name="equationDisplay" type="RichTextLabel" parent="." unique_id=1547332816]
 layout_mode = 0
 offset_left = 320.0
-offset_top = 352.0
+offset_top = 320.0
 offset_right = 704.0
-offset_bottom = 383.0
+offset_bottom = 351.0
 horizontal_alignment = 1
 
 [node name="back" type="Control" parent="." unique_id=740781839]
@@ -553,7 +485,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
 theme_override_styles/normal = SubResource("StyleBoxFlat_em8oh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cqjoa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mg6lk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_g5lob")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_xjg7p")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j04uc")
@@ -617,9 +549,9 @@ offset_bottom = 48.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
-theme_override_styles/normal = SubResource("StyleBoxFlat_5hm38")
+theme_override_styles/normal = SubResource("StyleBoxFlat_euto5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_mg6lk")
-theme_override_styles/hover = SubResource("StyleBoxFlat_qm6bl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5hm38")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_q0668")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j04uc")
 text = "ON
@@ -676,7 +608,10 @@ offset_bottom = -24.0
 text = "Step-By-Step "
 horizontal_alignment = 1
 
-[node name="Controller" type="Control" parent="." unique_id=246988804 node_paths=PackedStringArray("feedTape", "equationDisplay", "stepBtn", "networker", "cancelBtn")]
+[node name="AbacusSection" parent="." unique_id=2112695411 instance=ExtResource("7_q0668")]
+layout_mode = 0
+
+[node name="Controller" type="Control" parent="." unique_id=246988804 node_paths=PackedStringArray("feedTape", "equationDisplay", "stepBtn", "networker")]
 anchors_preset = 0
 offset_left = 505.0
 offset_top = 294.0
@@ -684,17 +619,23 @@ offset_right = 545.0
 offset_bottom = 334.0
 mouse_filter = 2
 script = ExtResource("2_wofsa")
-reset = "res://Scenes/Abacus.tscn"
 feedTape = NodePath("../feedTape")
 equationDisplay = NodePath("../equationDisplay")
-stepBtn = NodePath("../Step")
+stepBtn = NodePath("../Button5")
 networker = NodePath("../Networker")
-cancelBtn = NodePath("../Cancel")
 
 [node name="Networker" type="Node" parent="." unique_id=427603377]
 script = ExtResource("3_iofns")
 
 [node name="HTTPRequest" type="HTTPRequest" parent="Networker" unique_id=1427420512]
+
+[node name="Control" type="Control" parent="." unique_id=1321867277]
+anchors_preset = 0
+offset_left = 512.0
+offset_top = 44.0
+offset_right = 552.0
+offset_bottom = 84.0
+script = ExtResource("10_8iype")
 
 [connection signal="pressed" from="back/Button" to="back/Button" method="_on_pressed"]
 [connection signal="pressed" from="toggle/Button" to="toggle/Button" method="_on_pressed"]

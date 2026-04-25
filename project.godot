@@ -23,6 +23,8 @@ Fade="*uid://ckv6rq8vxx56n"
 
 window/size/viewport_width=1024
 window/size/viewport_height=600
+window/size/mode=4
+window/size/mode.editor=0
 
 [physics]
 
@@ -31,3 +33,4 @@ window/size/viewport_height=600
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"

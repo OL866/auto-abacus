@@ -82,9 +82,9 @@ metadata/_edit_lock_ = true
 [node name="back" type="Control" parent="." unique_id=394139981]
 anchors_preset = 0
 offset_left = 160.0
-offset_top = 560.0
+offset_top = 592.0
 offset_right = 200.0
-offset_bottom = 600.0
+offset_bottom = 632.0
 
 [node name="Control" type="Control" parent="back" unique_id=98883328]
 anchors_preset = 0
@@ -122,7 +122,7 @@ script = ExtResource("2_i6t4g")
 targetY = 64
 down = false
 scenePath = "res://Scenes/titleScreen.tscn"
-disableBtns = [NodePath("."), NodePath("../../Subtracting/Button"), NodePath("../../Adding/Button"), NodePath("../../Basics/Button"), NodePath("../../Compliments/Button"), NodePath("../../Multiplying/Button")]
+disableBtns = [NodePath("."), NodePath("../../Multiplying/Button"), NodePath("../../Compliments/Button"), NodePath("../../Basics/Button"), NodePath("../../Adding/Button"), NodePath("../../Subtracting/Button")]
 
 [node name="Base" type="Control" parent="back" unique_id=1689217638]
 anchors_preset = 0
@@ -144,31 +144,31 @@ offset_right = 204.0
 offset_bottom = 20.0
 color = Color(0, 0, 0, 1)
 
-[node name="Adding" type="Control" parent="." unique_id=1222037940]
+[node name="Compliments" type="Control" parent="." unique_id=1222037940]
 anchors_preset = 0
 offset_left = 496.0
-offset_top = 560.0
+offset_top = 592.0
 offset_right = 536.0
-offset_bottom = 600.0
+offset_bottom = 632.0
 
-[node name="Control" type="Control" parent="Adding" unique_id=432091539]
+[node name="Control" type="Control" parent="Compliments" unique_id=432091539]
 anchors_preset = 0
 offset_top = -88.0
 offset_bottom = -88.0
 
-[node name="Pole" type="ColorRect" parent="Adding/Control" unique_id=800087575]
+[node name="Pole" type="ColorRect" parent="Compliments/Control" unique_id=800087575]
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 680.0
 
-[node name="Pole2" type="ColorRect" parent="Adding/Control" unique_id=568170436]
+[node name="Pole2" type="ColorRect" parent="Compliments/Control" unique_id=568170436]
 layout_mode = 0
 offset_left = 4.0
 offset_right = 28.0
 offset_bottom = 680.0
 color = Color(0, 0, 0, 1)
 
-[node name="Button" type="Button" parent="Adding" unique_id=1241306282 node_paths=PackedStringArray("disableBtns")]
+[node name="Button" type="Button" parent="Compliments" unique_id=1241306282 node_paths=PackedStringArray("disableBtns")]
 layout_mode = 0
 offset_left = -80.0
 offset_top = 296.0
@@ -187,22 +187,22 @@ script = ExtResource("2_i6t4g")
 targetY = 64
 down = false
 delay = 0.1
-scenePath = "res://Scenes/titleScreen.tscn"
-disableBtns = [NodePath("../../back/Button"), NodePath("../../Subtracting/Button"), NodePath("."), NodePath("../../Basics/Button"), NodePath("../../Compliments/Button"), NodePath("../../Multiplying/Button")]
+scenePath = "res://Scenes/compliments.tscn"
+disableBtns = [NodePath("../../back/Button"), NodePath("../../Multiplying/Button"), NodePath("."), NodePath("../../Basics/Button"), NodePath("../../Adding/Button"), NodePath("../../Subtracting/Button")]
 
-[node name="Base" type="Control" parent="Adding" unique_id=969169376]
+[node name="Base" type="Control" parent="Compliments" unique_id=969169376]
 anchors_preset = 0
 offset_left = -88.0
 offset_top = -112.0
 offset_right = -48.0
 offset_bottom = -72.0
 
-[node name="Base" type="ColorRect" parent="Adding/Base" unique_id=1581771904]
+[node name="Base" type="ColorRect" parent="Compliments/Base" unique_id=1581771904]
 layout_mode = 0
 offset_right = 208.0
 offset_bottom = 24.0
 
-[node name="Base2" type="ColorRect" parent="Adding/Base" unique_id=1069768197]
+[node name="Base2" type="ColorRect" parent="Compliments/Base" unique_id=1069768197]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -210,31 +210,31 @@ offset_right = 204.0
 offset_bottom = 20.0
 color = Color(0, 0, 0, 1)
 
-[node name="Subtracting" type="Control" parent="." unique_id=52823555]
+[node name="Multiplying" type="Control" parent="." unique_id=52823555]
 anchors_preset = 0
 offset_left = 832.0
-offset_top = 560.0
+offset_top = 592.0
 offset_right = 872.0
-offset_bottom = 600.0
+offset_bottom = 632.0
 
-[node name="Control" type="Control" parent="Subtracting" unique_id=1737795710]
+[node name="Control" type="Control" parent="Multiplying" unique_id=1737795710]
 anchors_preset = 0
 offset_top = -88.0
 offset_bottom = -88.0
 
-[node name="Pole" type="ColorRect" parent="Subtracting/Control" unique_id=919163111]
+[node name="Pole" type="ColorRect" parent="Multiplying/Control" unique_id=919163111]
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 680.0
 
-[node name="Pole2" type="ColorRect" parent="Subtracting/Control" unique_id=1497313446]
+[node name="Pole2" type="ColorRect" parent="Multiplying/Control" unique_id=1497313446]
 layout_mode = 0
 offset_left = 4.0
 offset_right = 28.0
 offset_bottom = 680.0
 color = Color(0, 0, 0, 1)
 
-[node name="Button" type="Button" parent="Subtracting" unique_id=1868669197 node_paths=PackedStringArray("disableBtns")]
+[node name="Button" type="Button" parent="Multiplying" unique_id=1868669197 node_paths=PackedStringArray("disableBtns")]
 layout_mode = 0
 offset_left = -80.0
 offset_top = 296.0
@@ -253,22 +253,22 @@ script = ExtResource("2_i6t4g")
 targetY = 64
 down = false
 delay = 0.2
-scenePath = "res://Scenes/titleScreen.tscn"
-disableBtns = [NodePath("../../back/Button"), NodePath("."), NodePath("../../Adding/Button"), NodePath("../../Basics/Button"), NodePath("../../Compliments/Button"), NodePath("../../Multiplying/Button")]
+scenePath = "res://Scenes/multiplication.tscn"
+disableBtns = [NodePath("../../back/Button"), NodePath("."), NodePath("../../Compliments/Button"), NodePath("../../Basics/Button"), NodePath("../../Adding/Button"), NodePath("../../Subtracting/Button")]
 
-[node name="Base" type="Control" parent="Subtracting" unique_id=496832534]
+[node name="Base" type="Control" parent="Multiplying" unique_id=496832534]
 anchors_preset = 0
 offset_left = -88.0
 offset_top = -112.0
 offset_right = -48.0
 offset_bottom = -72.0
 
-[node name="Base" type="ColorRect" parent="Subtracting/Base" unique_id=163773654]
+[node name="Base" type="ColorRect" parent="Multiplying/Base" unique_id=163773654]
 layout_mode = 0
 offset_right = 208.0
 offset_bottom = 24.0
 
-[node name="Base2" type="ColorRect" parent="Subtracting/Base" unique_id=1675832042]
+[node name="Base2" type="ColorRect" parent="Multiplying/Base" unique_id=1675832042]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -279,9 +279,9 @@ color = Color(0, 0, 0, 1)
 [node name="Basics" type="Control" parent="." unique_id=1423400553]
 anchors_preset = 0
 offset_left = 160.0
-offset_top = -432.0
+offset_top = -480.0
 offset_right = 200.0
-offset_bottom = -392.0
+offset_bottom = -440.0
 
 [node name="Control" type="Control" parent="Basics" unique_id=1833093245]
 anchors_preset = 0
@@ -318,8 +318,8 @@ text = "Basics"
 script = ExtResource("2_i6t4g")
 targetY = 368
 delay = 0.3
-scenePath = "res://Scenes/titleScreen.tscn"
-disableBtns = [NodePath("../../back/Button"), NodePath("../../Subtracting/Button"), NodePath("../../Adding/Button"), NodePath("."), NodePath("../../Compliments/Button"), NodePath("../../Multiplying/Button")]
+scenePath = "res://Scenes/basics.tscn"
+disableBtns = [NodePath("../../back/Button"), NodePath("../../Multiplying/Button"), NodePath("../../Compliments/Button"), NodePath("."), NodePath("../../Adding/Button"), NodePath("../../Subtracting/Button")]
 
 [node name="Base" type="Control" parent="Basics" unique_id=555282187]
 anchors_preset = 0
@@ -341,31 +341,31 @@ offset_right = 204.0
 offset_bottom = 20.0
 color = Color(0, 0, 0, 1)
 
-[node name="Compliments" type="Control" parent="." unique_id=871771150]
+[node name="Adding" type="Control" parent="." unique_id=871771150]
 anchors_preset = 0
-offset_left = 488.0
-offset_top = -432.0
-offset_right = 528.0
-offset_bottom = -392.0
+offset_left = 496.0
+offset_top = -480.0
+offset_right = 536.0
+offset_bottom = -440.0
 
-[node name="Control" type="Control" parent="Compliments" unique_id=1466586885]
+[node name="Control" type="Control" parent="Adding" unique_id=1466586885]
 anchors_preset = 0
 offset_top = -88.0
 offset_bottom = -88.0
 
-[node name="Pole" type="ColorRect" parent="Compliments/Control" unique_id=1410142798]
+[node name="Pole" type="ColorRect" parent="Adding/Control" unique_id=1410142798]
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 680.0
 
-[node name="Pole2" type="ColorRect" parent="Compliments/Control" unique_id=1607684180]
+[node name="Pole2" type="ColorRect" parent="Adding/Control" unique_id=1607684180]
 layout_mode = 0
 offset_left = 4.0
 offset_right = 28.0
 offset_bottom = 680.0
 color = Color(0, 0, 0, 1)
 
-[node name="Button" type="Button" parent="Compliments" unique_id=1755408457 node_paths=PackedStringArray("disableBtns")]
+[node name="Button" type="Button" parent="Adding" unique_id=1755408457 node_paths=PackedStringArray("disableBtns")]
 layout_mode = 0
 offset_left = -80.0
 offset_top = 144.0
@@ -383,22 +383,22 @@ text = "Adding"
 script = ExtResource("2_i6t4g")
 targetY = 368
 delay = 0.4
-scenePath = "res://Scenes/titleScreen.tscn"
-disableBtns = [NodePath("../../back/Button"), NodePath("../../Subtracting/Button"), NodePath("../../Adding/Button"), NodePath("../../Basics/Button"), NodePath("."), NodePath("../../Multiplying/Button")]
+scenePath = "res://Scenes/addition.tscn"
+disableBtns = [NodePath("../../back/Button"), NodePath("../../Multiplying/Button"), NodePath("../../Compliments/Button"), NodePath("../../Basics/Button"), NodePath("."), NodePath("../../Subtracting/Button")]
 
-[node name="Base" type="Control" parent="Compliments" unique_id=322650017]
+[node name="Base" type="Control" parent="Adding" unique_id=322650017]
 anchors_preset = 0
 offset_left = -88.0
 offset_top = 584.0
 offset_right = -48.0
 offset_bottom = 624.0
 
-[node name="Base" type="ColorRect" parent="Compliments/Base" unique_id=1463260444]
+[node name="Base" type="ColorRect" parent="Adding/Base" unique_id=1463260444]
 layout_mode = 0
 offset_right = 208.0
 offset_bottom = 24.0
 
-[node name="Base2" type="ColorRect" parent="Compliments/Base" unique_id=1375413654]
+[node name="Base2" type="ColorRect" parent="Adding/Base" unique_id=1375413654]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -406,31 +406,31 @@ offset_right = 204.0
 offset_bottom = 20.0
 color = Color(0, 0, 0, 1)
 
-[node name="Multiplying" type="Control" parent="." unique_id=1376471173]
+[node name="Subtracting" type="Control" parent="." unique_id=1376471173]
 anchors_preset = 0
 offset_left = 832.0
-offset_top = -432.0
+offset_top = -480.0
 offset_right = 872.0
-offset_bottom = -392.0
+offset_bottom = -440.0
 
-[node name="Control" type="Control" parent="Multiplying" unique_id=739426822]
+[node name="Control" type="Control" parent="Subtracting" unique_id=739426822]
 anchors_preset = 0
 offset_top = -88.0
 offset_bottom = -88.0
 
-[node name="Pole" type="ColorRect" parent="Multiplying/Control" unique_id=529332684]
+[node name="Pole" type="ColorRect" parent="Subtracting/Control" unique_id=529332684]
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 680.0
 
-[node name="Pole2" type="ColorRect" parent="Multiplying/Control" unique_id=1808619942]
+[node name="Pole2" type="ColorRect" parent="Subtracting/Control" unique_id=1808619942]
 layout_mode = 0
 offset_left = 4.0
 offset_right = 28.0
 offset_bottom = 680.0
 color = Color(0, 0, 0, 1)
 
-[node name="Button" type="Button" parent="Multiplying" unique_id=1159809913 node_paths=PackedStringArray("disableBtns")]
+[node name="Button" type="Button" parent="Subtracting" unique_id=1159809913 node_paths=PackedStringArray("disableBtns")]
 layout_mode = 0
 offset_left = -80.0
 offset_top = 144.0
@@ -448,22 +448,22 @@ text = "Subtacting "
 script = ExtResource("2_i6t4g")
 targetY = 368
 delay = 0.5
-scenePath = "res://Scenes/titleScreen.tscn"
-disableBtns = [NodePath("../../back/Button"), NodePath("../../Subtracting/Button"), NodePath("../../Adding/Button"), NodePath("../../Basics/Button"), NodePath("../../Compliments/Button"), NodePath(".")]
+scenePath = "res://Scenes/subtraction.tscn"
+disableBtns = [NodePath("../../back/Button"), NodePath("../../Multiplying/Button"), NodePath("../../Compliments/Button"), NodePath("../../Basics/Button"), NodePath("../../Adding/Button"), NodePath(".")]
 
-[node name="Base" type="Control" parent="Multiplying" unique_id=1331488871]
+[node name="Base" type="Control" parent="Subtracting" unique_id=1331488871]
 anchors_preset = 0
 offset_left = -88.0
 offset_top = 584.0
 offset_right = -48.0
 offset_bottom = 624.0
 
-[node name="Base" type="ColorRect" parent="Multiplying/Base" unique_id=925373439]
+[node name="Base" type="ColorRect" parent="Subtracting/Base" unique_id=925373439]
 layout_mode = 0
 offset_right = 208.0
 offset_bottom = 24.0
 
-[node name="Base2" type="ColorRect" parent="Multiplying/Base" unique_id=486574818]
+[node name="Base2" type="ColorRect" parent="Subtracting/Base" unique_id=486574818]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -472,8 +472,8 @@ offset_bottom = 20.0
 color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="back/Button" to="back/Button" method="_on_pressed"]
-[connection signal="pressed" from="Adding/Button" to="Adding/Button" method="_on_pressed"]
-[connection signal="pressed" from="Subtracting/Button" to="Subtracting/Button" method="_on_pressed"]
-[connection signal="pressed" from="Basics/Button" to="Basics/Button" method="_on_pressed"]
 [connection signal="pressed" from="Compliments/Button" to="Compliments/Button" method="_on_pressed"]
 [connection signal="pressed" from="Multiplying/Button" to="Multiplying/Button" method="_on_pressed"]
+[connection signal="pressed" from="Basics/Button" to="Basics/Button" method="_on_pressed"]
+[connection signal="pressed" from="Adding/Button" to="Adding/Button" method="_on_pressed"]
+[connection signal="pressed" from="Subtracting/Button" to="Subtracting/Button" method="_on_pressed"]

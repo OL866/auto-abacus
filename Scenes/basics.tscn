@@ -1,0 +1,430 @@
+[gd_scene format=3 uid="uid://dcdawgwnihrss"]
+
+[ext_resource type="Shader" uid="uid://r4r1he2nel45" path="res://grid.gdshader" id="1_4fkfu"]
+[ext_resource type="Script" uid="uid://b5scjssul4bd6" path="res://Scripts/bead.gd" id="2_drj7k"]
+[ext_resource type="Script" uid="uid://qiwc0mi4vmns" path="res://Scripts/displayManager.gd" id="3_drj7k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p1f1o"]
+shader = ExtResource("1_4fkfu")
+shader_parameter/size = Vector2(1024, 600)
+shader_parameter/line_width = 0.1
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/grid_size = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omtrn"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6t4g"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8jf4"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feyax"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1f1o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euto5"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg6lk"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hm38"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j04uc"]
+
+[node name="Tutorial" type="Control" unique_id=1397375333]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grid2" type="ColorRect" parent="." unique_id=1698733554]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Grid" type="ColorRect" parent="." unique_id=2101925208]
+material = SubResource("ShaderMaterial_p1f1o")
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.21176471, 0.21176471, 0.21176471, 1)
+metadata/_edit_lock_ = true
+
+[node name="back" type="Control" parent="." unique_id=394139981]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = 584.0
+offset_right = 200.0
+offset_bottom = 624.0
+
+[node name="Control" type="Control" parent="back" unique_id=98883328]
+anchors_preset = 0
+offset_top = -88.0
+offset_bottom = -88.0
+
+[node name="Pole" type="ColorRect" parent="back/Control" unique_id=1785222917]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 680.0
+
+[node name="Pole2" type="ColorRect" parent="back/Control" unique_id=905525104]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 28.0
+offset_bottom = 680.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="back" unique_id=1651258269 node_paths=PackedStringArray("disableBtns")]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 296.0
+offset_right = 112.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_omtrn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i6t4g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p8jf4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_feyax")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p1f1o")
+text = "Back
+"
+script = ExtResource("2_drj7k")
+targetY = 64
+down = false
+scenePath = "res://Scenes/tutorial.tscn"
+disableBtns = [NodePath(".")]
+
+[node name="Base" type="Control" parent="back" unique_id=1689217638]
+anchors_preset = 0
+offset_left = -88.0
+offset_top = -112.0
+offset_right = -48.0
+offset_bottom = -72.0
+
+[node name="Base" type="ColorRect" parent="back/Base" unique_id=707528070]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 24.0
+
+[node name="Base2" type="ColorRect" parent="back/Base" unique_id=993450827]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 204.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=1387284539]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 384.0
+offset_bottom = 128.0
+theme_override_font_sizes/normal_font_size = 48
+text = "Abacus Basics"
+
+[node name="P1" type="RichTextLabel" parent="." unique_id=1731114081]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 104.0
+offset_right = 264.0
+offset_bottom = 184.0
+text = "Each top bead is known as a \"Heaven  Bead\" and holds a value of 5 "
+
+[node name="A1" type="RichTextLabel" parent="." unique_id=790728361]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 104.0
+offset_right = 320.0
+offset_bottom = 152.0
+theme_override_font_sizes/normal_font_size = 32
+text = "→"
+
+[node name="A2" type="RichTextLabel" parent="." unique_id=412046548]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 216.0
+offset_right = 320.0
+offset_bottom = 264.0
+theme_override_font_sizes/normal_font_size = 32
+text = "→"
+
+[node name="P2" type="RichTextLabel" parent="." unique_id=764797869]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 208.0
+offset_right = 288.0
+offset_bottom = 288.0
+text = "Each bottom bead is known as an \"Earth  Bead\" and holds a value of 1"
+
+[node name="P3" type="RichTextLabel" parent="." unique_id=1174855680]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 320.0
+offset_right = 384.0
+offset_bottom = 384.0
+text = "Each bead contributes it's value to the rod when it is touching the middle section"
+
+[node name="P4" type="RichTextLabel" parent="." unique_id=2070843345]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 32.0
+offset_right = 992.0
+offset_bottom = 80.0
+text = "Each rod corresponds to a unit value and is given a letter for clarity"
+horizontal_alignment = 1
+
+[node name="AbacusSection" type="Control" parent="." unique_id=2112695411]
+anchors_preset = 0
+offset_left = 320.0
+offset_top = 96.0
+offset_right = 360.0
+offset_bottom = 136.0
+
+[node name="Control" type="Control" parent="AbacusSection" unique_id=1110217778]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 28.0
+offset_right = 16.0
+offset_bottom = 28.0
+
+[node name="Pole" type="ColorRect" parent="AbacusSection/Control" unique_id=568847287]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -16.0
+offset_right = 24.0
+offset_bottom = 152.0
+
+[node name="Pole2" type="ColorRect" parent="AbacusSection/Control" unique_id=890474341]
+layout_mode = 0
+offset_left = 12.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 152.0
+color = Color(0, 0, 0, 1)
+
+[node name="Base2" type="Control" parent="AbacusSection" unique_id=1929504923]
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 48.0
+offset_right = 44.0
+offset_bottom = 88.0
+mouse_filter = 2
+
+[node name="Top" type="ColorRect" parent="AbacusSection/Base2" unique_id=1521975443]
+layout_mode = 0
+offset_left = -4.0
+offset_right = 60.0
+offset_bottom = 16.0
+
+[node name="Top2" type="ColorRect" parent="AbacusSection/Base2" unique_id=305559695]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 56.0
+offset_bottom = 12.0
+color = Color(0, 0, 0, 1)
+
+[node name="Base3" type="Control" parent="AbacusSection" unique_id=60070905]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Top" type="ColorRect" parent="AbacusSection/Base3" unique_id=1364970761]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 16.0
+
+[node name="Top2" type="ColorRect" parent="AbacusSection/Base3" unique_id=2004890256]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 60.0
+offset_bottom = 12.0
+color = Color(0, 0, 0, 1)
+
+[node name="Base" type="Control" parent="AbacusSection" unique_id=6884453]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 176.0
+offset_right = 56.0
+offset_bottom = 216.0
+mouse_filter = 2
+
+[node name="Bottom" type="ColorRect" parent="AbacusSection/Base" unique_id=824826874]
+layout_mode = 0
+offset_left = -16.0
+offset_right = 48.0
+offset_bottom = 16.0
+
+[node name="Bottom2" type="ColorRect" parent="AbacusSection/Base" unique_id=1892876468]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 4.0
+offset_right = 44.0
+offset_bottom = 12.0
+color = Color(0, 0, 0, 1)
+
+[node name="Beads" type="Control" parent="AbacusSection" unique_id=1357399382]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 72.0
+offset_bottom = 64.0
+
+[node name="Earth" type="Button" parent="AbacusSection/Beads" unique_id=392202984]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 56.0
+offset_right = 24.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mg6lk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5hm38")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j04uc")
+disabled = true
+
+[node name="Earth2" type="Button" parent="AbacusSection/Beads" unique_id=965331195]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 80.0
+offset_right = 24.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mg6lk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5hm38")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j04uc")
+disabled = true
+
+[node name="Earth3" type="Button" parent="AbacusSection/Beads" unique_id=366816060]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 104.0
+offset_right = 24.0
+offset_bottom = 128.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mg6lk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5hm38")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j04uc")
+disabled = true
+
+[node name="Earth4" type="Button" parent="AbacusSection/Beads" unique_id=1182679550]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 128.0
+offset_right = 24.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mg6lk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5hm38")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j04uc")
+disabled = true
+
+[node name="Heaven" type="Button" parent="AbacusSection/Beads" unique_id=1654837490]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -8.0
+offset_right = 24.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mg6lk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5hm38")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j04uc")
+disabled = true
+
+[node name="abacusDisplay" type="Control" parent="." unique_id=821154256]
+anchors_preset = 0
+offset_left = 480.0
+offset_top = 96.0
+offset_right = 528.0
+offset_bottom = 144.0
+script = ExtResource("3_drj7k")
+initVal = "82459031"
+placeVals = true
+
+[connection signal="pressed" from="back/Button" to="back/Button" method="_on_pressed"]

@@ -1,0 +1,316 @@
+[gd_scene format=3 uid="uid://crknitpxf3mxx"]
+
+[ext_resource type="Shader" uid="uid://r4r1he2nel45" path="res://grid.gdshader" id="1_qgi2i"]
+[ext_resource type="Script" uid="uid://b5scjssul4bd6" path="res://Scripts/bead.gd" id="2_qrpmt"]
+[ext_resource type="Script" uid="uid://qiwc0mi4vmns" path="res://Scripts/displayManager.gd" id="3_ke23h"]
+[ext_resource type="Script" uid="uid://crok0te81pt6r" path="res://Scripts/next.gd" id="4_qrpmt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p1f1o"]
+shader = ExtResource("1_qgi2i")
+shader_parameter/size = Vector2(1024, 600)
+shader_parameter/line_width = 0.1
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/grid_size = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omtrn"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6t4g"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8jf4"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feyax"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1f1o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ke23h"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hxd3"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4bcc2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_257mg"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.4, 0.4, 0.4, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pvb73"]
+
+[node name="Tutorial" type="Control" unique_id=1397375333]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grid2" type="ColorRect" parent="." unique_id=1698733554]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Grid" type="ColorRect" parent="." unique_id=2101925208]
+material = SubResource("ShaderMaterial_p1f1o")
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.21176471, 0.21176471, 0.21176471, 1)
+metadata/_edit_lock_ = true
+
+[node name="back" type="Control" parent="." unique_id=1077990636]
+anchors_preset = 0
+offset_left = 496.0
+offset_top = 592.0
+offset_right = 536.0
+offset_bottom = 632.0
+
+[node name="Control" type="Control" parent="back" unique_id=1839191226]
+anchors_preset = 0
+offset_top = -88.0
+offset_bottom = -88.0
+
+[node name="Pole" type="ColorRect" parent="back/Control" unique_id=1489940412]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 680.0
+
+[node name="Pole2" type="ColorRect" parent="back/Control" unique_id=1327122520]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 28.0
+offset_bottom = 680.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="back" unique_id=1681185976 node_paths=PackedStringArray("disableBtns")]
+layout_mode = 0
+offset_left = -80.0
+offset_top = 296.0
+offset_right = 112.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_omtrn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i6t4g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p8jf4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_feyax")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p1f1o")
+text = "Back
+"
+script = ExtResource("2_qrpmt")
+targetY = 64
+down = false
+scenePath = "res://Scenes/tutorial.tscn"
+disableBtns = [NodePath(".")]
+
+[node name="Base" type="Control" parent="back" unique_id=772289367]
+anchors_preset = 0
+offset_left = -88.0
+offset_top = -112.0
+offset_right = -48.0
+offset_bottom = -72.0
+
+[node name="Base" type="ColorRect" parent="back/Base" unique_id=1544661053]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 24.0
+
+[node name="Base2" type="ColorRect" parent="back/Base" unique_id=1805876208]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 204.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=1387284539]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 384.0
+offset_bottom = 128.0
+theme_override_font_sizes/normal_font_size = 48
+text = "Addition"
+
+[node name="P1" type="RichTextLabel" parent="." unique_id=1731114081]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 264.0
+offset_bottom = 176.0
+text = "Set the abacus to the first value then add the second value digit by digit"
+
+[node name="E1" type="RichTextLabel" parent="." unique_id=39716818]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 352.0
+offset_right = 480.0
+offset_bottom = 432.0
+text = "
+"
+
+[node name="E2" type="RichTextLabel" parent="." unique_id=687449544]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 352.0
+offset_right = 736.0
+offset_bottom = 432.0
+text = "
+"
+
+[node name="E3" type="RichTextLabel" parent="." unique_id=1234089761]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 352.0
+offset_right = 992.0
+offset_bottom = 448.0
+text = "
+"
+
+[node name="P2" type="RichTextLabel" parent="." unique_id=764797869]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 176.0
+offset_right = 288.0
+offset_bottom = 296.0
+text = "If an addition of 2 digits would result in a number greater than 10, instead subtract the compliment and add 1 to the rod to the left."
+
+[node name="P4" type="RichTextLabel" parent="." unique_id=2070843345]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 32.0
+offset_right = 992.0
+offset_bottom = 96.0
+theme_override_font_sizes/normal_font_size = 32
+text = "192 + 26 = 218"
+horizontal_alignment = 1
+
+[node name="abacusDisplay" type="Control" parent="." unique_id=821154256]
+anchors_preset = 0
+offset_left = 288.0
+offset_top = 96.0
+offset_right = 336.0
+offset_bottom = 144.0
+script = ExtResource("3_ke23h")
+count = 3
+lexes = false
+
+[node name="abacusDisplay2" type="Control" parent="." unique_id=1871011365]
+anchors_preset = 0
+offset_left = 544.0
+offset_top = 96.0
+offset_right = 592.0
+offset_bottom = 144.0
+script = ExtResource("3_ke23h")
+count = 3
+lexes = false
+
+[node name="abacusDisplay3" type="Control" parent="." unique_id=1594688966]
+anchors_preset = 0
+offset_left = 800.0
+offset_top = 96.0
+offset_right = 848.0
+offset_bottom = 144.0
+script = ExtResource("3_ke23h")
+count = 3
+lexes = false
+
+[node name="Next" type="Button" parent="." unique_id=964806624 node_paths=PackedStringArray("displays", "texts")]
+visible = false
+layout_mode = 0
+offset_left = 904.0
+offset_top = 32.0
+offset_right = 992.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0.40146014, 0.40146014, 0.40146014, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ke23h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2hxd3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4bcc2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_257mg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pvb73")
+text = "Next"
+script = ExtResource("4_qrpmt")
+displays = [NodePath("../abacusDisplay"), NodePath("../abacusDisplay2"), NodePath("../abacusDisplay3")]
+texts = [NodePath("../E1"), NodePath("../E2"), NodePath("../E3")]
+nIns1 = Array[String](["192"])
+tIns1 = Array[String](["1) Set the abacus to 192"])
+nIns2 = Array[String](["198"])
+tIns2 = Array[String](["2) Add 6 to 2"])
+nIns3 = Array[String](["218"])
+tIns3 = Array[String](["3) Add 2 to 9
+	a) Subtract 8 from 9
+	b) Carry the 1"])
+
+[connection signal="pressed" from="back/Button" to="back/Button" method="_on_pressed"]
+[connection signal="pressed" from="Next" to="Next" method="_on_pressed" binds= [NodePath("../Prev")]]

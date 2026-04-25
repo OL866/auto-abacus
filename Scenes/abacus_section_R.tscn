@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://wyg2p53gwxgb"]
+
+[ext_resource type="Script" uid="uid://dephvpcoylw1r" path="res://Scripts/displayAbacus.gd" id="1_ijbo7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euto5"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg6lk"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hm38"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j04uc"]
+
+[node name="AbacusSection" type="Control" unique_id=2112695411]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ijbo7")
+
+[node name="Control" type="Control" parent="." unique_id=1110217778]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 28.0
+offset_right = 16.0
+offset_bottom = 28.0
+
+[node name="Pole" type="ColorRect" parent="Control" unique_id=568847287]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -16.0
+offset_right = 24.0
+offset_bottom = 152.0
+
+[node name="Pole2" type="ColorRect" parent="Control" unique_id=890474341]
+layout_mode = 0
+offset_left = 12.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 152.0
+color = Color(0, 0, 0, 1)
+
+[node name="Base2" type="Control" parent="." unique_id=1929504923]
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 48.0
+offset_right = 44.0
+offset_bottom = 88.0
+mouse_filter = 2
+
+[node name="Top" type="ColorRect" parent="Base2" unique_id=1521975443]
+layout_mode = 0
+offset_left = -4.0
+offset_right = 60.0
+offset_bottom = 16.0
+
+[node name="Top2" type="ColorRect" parent="Base2" unique_id=305559695]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = 56.0
+offset_bottom = 12.0
+color = Color(0, 0, 0, 1)
+
+[node name="Base3" type="Control" parent="." unique_id=60070905]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Top" type="ColorRect" parent="Base3" unique_id=1364970761]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 16.0
+
+[node name="Top2" type="ColorRect" parent="Base3" unique_id=2004890256]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 60.0
+offset_bottom = 12.0
+color = Color(0, 0, 0, 1)
+
+[node name="Base" type="Control" parent="." unique_id=6884453]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 176.0
+offset_right = 56.0
+offset_bottom = 216.0
+mouse_filter = 2
+
+[node name="Bottom" type="ColorRect" parent="Base" unique_id=824826874]
+layout_mode = 0
+offset_left = -16.0
+offset_right = 48.0
+offset_bottom = 16.0
+
+[node name="Bottom2" type="ColorRect" parent="Base" unique_id=1892876468]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 4.0
+offset_right = 44.0
+offset_bottom = 12.0
+color = Color(0, 0, 0, 1)
+
+[node name="Beads" type="Control" parent="." unique_id=1357399382]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 72.0
+offset_bottom = 64.0
+
+[node name="Earth" type="Button" parent="Beads" unique_id=392202984]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 56.0
+offset_right = 24.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mg6lk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5hm38")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j04uc")
+disabled = true
+
+[node name="Earth2" type="Button" parent="Beads" unique_id=965331195]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 80.0
+offset_right = 24.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mg6lk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5hm38")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j04uc")
+disabled = true
+
+[node name="Earth3" type="Button" parent="Beads" unique_id=366816060]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 104.0
+offset_right = 24.0
+offset_bottom = 128.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mg6lk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5hm38")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j04uc")
+disabled = true
+
+[node name="Earth4" type="Button" parent="Beads" unique_id=1182679550]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 128.0
+offset_right = 24.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mg6lk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5hm38")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j04uc")
+disabled = true
+
+[node name="Heaven" type="Button" parent="Beads" unique_id=1654837490]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -8.0
+offset_right = 24.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mg6lk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5hm38")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_euto5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j04uc")
+disabled = true

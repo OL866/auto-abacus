@@ -24,6 +24,13 @@ func typing(s):
 		find_child("Buttons").find_child("mult").set_disabled(false)
 		controller.set_val(0)
 		controller.equationDisplay.set_text("")
+		for i in btns:
+			i.set_disabled(true)
+		get_parent().find_child("back").set_visible(false)
+		await controller.allDone
+		for i in btns:
+			i.set_disabled(false)
+		get_parent().find_child("back").set_visible(true)
 		if not toClear: return
 		toClear = false
 	if s == "⌫":

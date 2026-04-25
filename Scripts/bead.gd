@@ -8,7 +8,7 @@ extends Button
 @onready var destination = Vector2(position.x,get_parent().find_child("Base").position.y + offSetY - (size.y if down else get_parent().find_child("Base").find_child("Base").size.y*-1))
 @onready var initPos = position
 @export var disableBtns:Array[Button]
-
+@onready var packed = load(scenePath)
 var going = false
 func _ready() -> void:
 	await get_tree().create_timer(delay).timeout
@@ -27,10 +27,10 @@ func _on_pressed() -> void:
 
 func _process(_delta: float) -> void:
 	if position.y <= targetY and going and down:
-		fader_load(scenePath)
+		fader_load(packed)
 	elif position.y >= targetY and going and not down:
-		fader_load(scenePath)
-func fader_load(s):
+		fader_load(packed)
+func fader_load(p):
 	await Fade.fade_out()
-	get_tree().change_scene_to_file(s)
+	get_tree().change_scene_to_packed(p)
 	await Fade.fade_in()

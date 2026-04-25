@@ -4,61 +4,72 @@ var abacus = []
 var displayInstructions = []
 var wordIns = []
 var insIdx = 0
-var stepWord = false
 
 signal calculationDone
 signal allDone
 
 var fastMode = false
-
+@export_file_path("*.tscn") var reset
 @onready var displayManager = get_parent().find_child("abacusDisplay")
 @export var feedTape:Control
 @export var equationDisplay:RichTextLabel
 @export var stepBtn:Button
 @export var networker:Node
+@export var cancelBtn:Button
 
 var abacusNegative = false
 var totalBorrowed = 0
 func _ready() -> void:
 	stepBtn.pressed.connect(step.bind(true))
-
+	cancelBtn.pressed.connect(cancel)
+	set_val(0)
+func cancel():
+	set_val(0)
+	await Fade.fade_out()
+	get_tree().change_scene_to_file(reset)
+	await Fade.fade_in()
 func operation(o, n,final=false, neg=1):
 	wordIns.clear()
 	var ins = o.call(int(n*neg),final)
 	displayInstructions = ins
 	if not fastMode:
+		cancelBtn.set_disabled(false)
 		feedTape.setup(wordIns)
 		stepBtn.set_disabled(false)
 	else:
 		for i in range(len(displayInstructions)):
 			step(false)
 			await allDone
-
+			await get_tree().create_timer(0.0001).timeout
 func step(btn):
-	#networker.send_data(displayInstructions[insIdx])
-	if btn: stepBtn.set_disabled(true)
-	displayManager.display(displayInstructions[insIdx],0.2)
-	await displayManager.displayDone
+	networker.send_data(displayInstructions[insIdx])
+	if btn: 
+		stepBtn.set_disabled(true)
+		cancelBtn.set_disabled(true)
+	displayManager.display(displayInstructions[insIdx],0.4,false)
+	if displayInstructions[insIdx-1] != displayInstructions[insIdx] or len(displayInstructions) == 1: 
+		await displayManager.displayDone
 	insIdx+=1
 	if insIdx >= len(displayInstructions):
-		stepWord = false
 		if btn:feedTape.kill()
 		displayInstructions.clear()
 		insIdx = 0
 		equationDisplay.set_text("")
-		if btn:stepBtn.set_disabled(true)
+		if btn:
+			stepBtn.set_disabled(true)
+			cancelBtn.set_disabled(true)
 		if btn: await feedTape.killDone
 		emit_signal("calculationDone")
 		return
 	if btn: 
 		feedTape.move(0.2)
 		await feedTape.moveDone
-	if btn: stepBtn.set_disabled(false)
+		stepBtn.set_disabled(false)
+		cancelBtn.set_disabled(false)
 	emit_signal("allDone")
-
 #basic setter
 func set_val(v):
-	print("Starting Set!")
+	var ogAba = abacus.duplicate()
 	abacus = [0,0,0,0,0,0,0,0]
 	var digits = str(v).split("")
 	if len(digits) > len(abacus):
@@ -67,10 +78,9 @@ func set_val(v):
 		return 
 	for i in range(len(digits)):
 		abacus[unitRod-i] = int(digits[-1-i])
-	#networker.send_data(abacus)
-	displayManager.display(abacus,0.2)
-	await displayManager.displayDone
-	print("Ending Set")
+	networker.send_data(abacus)
+	displayManager.display(abacus,0.4,false)
+	await get_tree().create_timer(0.4 if  ogAba != abacus else 0.001).timeout
 	emit_signal("allDone")
 
 #adding digits, called recursively for carrying
@@ -161,6 +171,12 @@ func multiply(n,_final):
 		array[i] = int(digits[i])
 	wordIns.append("P" + "Multiplying " + str(val) + " by " + str(n))
 	equationDisplay.set_text(str(val) + " " + char(215) + " " + str(n) + " = " + str(val*n))
+	if not n:
+		wordIns.append("SMultiplying by zero always results in zero")
+		return [[0,0,0,0,0,0,0,0]]
+	if n == 1:
+		wordIns.append("SMultiplying by one always results in the original number")
+		return [abacus.duplicate()]
 	var inscribed = "S"+"Inscribe one less than " + str(n) +" (" + str(n-1) + ") in rod"+ ("s " if len(digits) > 1 else " ")
 	for i in range(len(digits)):
 		inscribed += char(65+i)
@@ -225,7 +241,10 @@ func parse(s,btns):
 	for i in btns:
 		i.set_disabled(true)
 	get_parent().find_child("back").set_visible(false)
-	await allDone
+	if operations:await allDone
+	else: 
+		await get_tree().create_timer(0.0001).timeout
+		await allDone
 	for i in operations:
 		i.call()
 		await calculationDone

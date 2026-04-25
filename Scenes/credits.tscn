@@ -221,8 +221,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
 disabled = true
-text = "Assembly/Printing    "
+text = "Hardware"
 script = ExtResource("2_ccovl")
+delay = 0.1
 scenePath = "res://Scenes/Abacus.tscn"
 disableBtns = [null, NodePath("."), null]
 
@@ -241,14 +242,14 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
 disabled = true
-text = "Server/Networking"
+text = "Design"
 script = ExtResource("2_ccovl")
 offSetY = -80.0
-delay = 0.15
+delay = 0.3
 scenePath = "res://Scenes/Abacus.tscn"
 disableBtns = [null, NodePath("."), null]
 
-[node name="Button3" type="Button" parent="WZ" unique_id=1715926244 node_paths=PackedStringArray("disableBtns")]
+[node name="Button4" type="Button" parent="WZ" unique_id=286012083 node_paths=PackedStringArray("disableBtns")]
 layout_mode = 0
 offset_left = -240.0
 offset_top = -544.0
@@ -263,32 +264,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
 disabled = true
-text = "Server/Networking"
-script = ExtResource("2_ccovl")
-offSetY = -160.0
-delay = 0.3
-scenePath = "res://Scenes/Abacus.tscn"
-disableBtns = [null, NodePath("."), null]
-
-[node name="Button4" type="Button" parent="WZ" unique_id=286012083 node_paths=PackedStringArray("disableBtns")]
-layout_mode = 0
-offset_left = -240.0
-offset_top = -624.0
-offset_right = 16.0
-offset_bottom = -544.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
-theme_override_styles/normal = SubResource("StyleBoxFlat_ccovl")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1bamb")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
-disabled = true
 text = "William Zanin"
 script = ExtResource("2_ccovl")
-offSetY = -240.0
-delay = 0.45
+offSetY = -160.0
+delay = 0.5
 scenePath = "res://Scenes/Abacus.tscn"
 disableBtns = [null, NodePath("."), null]
 
@@ -354,7 +333,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
 disabled = true
-text = "Assembly/Printing    "
+text = "UI Software"
 script = ExtResource("2_ccovl")
 scenePath = "res://Scenes/Abacus.tscn"
 disableBtns = [null, NodePath("."), null]
@@ -374,14 +353,14 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
 disabled = true
-text = "Server/Networking"
+text = "Description Poster / Research"
 script = ExtResource("2_ccovl")
 offSetY = -80.0
-delay = 0.15
+delay = 0.2
 scenePath = "res://Scenes/Abacus.tscn"
 disableBtns = [null, NodePath("."), null]
 
-[node name="Button3" type="Button" parent="OL" unique_id=560114576 node_paths=PackedStringArray("disableBtns")]
+[node name="Button4" type="Button" parent="OL" unique_id=1621085264 node_paths=PackedStringArray("disableBtns")]
 layout_mode = 0
 offset_left = -240.0
 offset_top = -544.0
@@ -396,32 +375,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
 disabled = true
-text = "Server/Networking"
-script = ExtResource("2_ccovl")
-offSetY = -160.0
-delay = 0.3
-scenePath = "res://Scenes/Abacus.tscn"
-disableBtns = [null, NodePath("."), null]
-
-[node name="Button4" type="Button" parent="OL" unique_id=1621085264 node_paths=PackedStringArray("disableBtns")]
-layout_mode = 0
-offset_left = -240.0
-offset_top = -624.0
-offset_right = 16.0
-offset_bottom = -544.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
-theme_override_styles/normal = SubResource("StyleBoxFlat_ccovl")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1bamb")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7emq5")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_803yc")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1wbrc")
-disabled = true
 text = "Owen Lim"
 script = ExtResource("2_ccovl")
-offSetY = -240.0
-delay = 0.45
+offSetY = -160.0
+delay = 0.4
 scenePath = "res://Scenes/Abacus.tscn"
 disableBtns = [null, NodePath("."), null]
 
@@ -473,8 +430,9 @@ offset_top = 346.0
 offset_right = 832.0
 offset_bottom = 438.0
 theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
 text = "UI program available on 
-https://github.com/OL866/auto-abacus   "
+[url][color=#97c1fc]https://github.com/OL866/auto-abacus[/color][/url]"
 fit_content = true
 
 [node name="WesternMathExpoCompQrCode(1)" type="Sprite2D" parent="." unique_id=163356310]
@@ -505,9 +463,7 @@ texture = ExtResource("7_1wbrc")
 [connection signal="pressed" from="back/Button" to="back/Button" method="_on_pressed"]
 [connection signal="pressed" from="WZ/Button" to="WZ/Button" method="_on_pressed"]
 [connection signal="pressed" from="WZ/Button2" to="WZ/Button2" method="_on_pressed"]
-[connection signal="pressed" from="WZ/Button3" to="WZ/Button3" method="_on_pressed"]
 [connection signal="pressed" from="WZ/Button4" to="WZ/Button4" method="_on_pressed"]
 [connection signal="pressed" from="OL/Button" to="OL/Button" method="_on_pressed"]
 [connection signal="pressed" from="OL/Button2" to="OL/Button2" method="_on_pressed"]
-[connection signal="pressed" from="OL/Button3" to="OL/Button3" method="_on_pressed"]
 [connection signal="pressed" from="OL/Button4" to="OL/Button4" method="_on_pressed"]
